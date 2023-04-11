@@ -27,7 +27,7 @@ class Pengguna extends CI_Controller {
 	
 	public function Listdata(){
 		$result=array(
-			array(
+				array(
 				"username"	=> "admin",
 				"nama"		=> "admin",
 				"role"	=> "Owner"
