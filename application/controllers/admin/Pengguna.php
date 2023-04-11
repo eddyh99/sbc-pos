@@ -26,7 +26,19 @@ class Pengguna extends CI_Controller {
 	}
 	
 	public function Listdata(){
-		$result=$this->PenggunaModel->listpengguna();
+		$result=array(
+			array(
+				"username"	=> "admin",
+				"nama"		=> "admin",
+				"role"	=> "Owner"
+				),
+				array(
+					"username"	=> "yoga",
+					"nama"		=> "Agung yoga",
+					"role"	=> "Office Staff"
+				)			
+			);
+		//$result=$this->PenggunaModel->listpengguna();
 		echo json_encode($result);
 	}
 
@@ -66,8 +78,15 @@ class Pengguna extends CI_Controller {
             "nama"      => $nama,
             "role"      => $role,
         );
-		$result		= $this->PenggunaModel->insertData($data);
+		//$result		= $this->PenggunaModel->insertData($data);
+		//untuk cek sukses atau gagal dengan cara menambahkan array result
 
+		// untuk sukses
+		// $result["code"]=0
+
+		//untuk gagal
+		// $result["code"]=5011
+		// $result["message"]="Data gagal di inputkan"
 		if ($result["code"]==0) {
 		    $this->session->set_flashdata('message', $this->message->success_msg());
 		    redirect(base_url()."admin/pengguna");
