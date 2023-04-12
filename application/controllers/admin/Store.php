@@ -13,6 +13,8 @@ class Store extends CI_Controller {
             redirect(base_url());
         }
 
+		$result=$this->storeModel->liststore();	
+
         $data = array(
             'title'		 => 'Data Store',
             'content'	 => 'admin/store/index',
@@ -22,13 +24,68 @@ class Store extends CI_Controller {
 			'colset'	 => 'collapse in',
 			'collap'	 => 'collapse',
 			'side2'		 => 'active',
+			'breadcrumb' => '/ Setup / Store'
 		);
 		$this->load->view('layout/wrapper', $data);
 	}
 	
 	public function Listdata(){
-		$result=$this->storeModel->liststore();
+		// $result=$this->storeModel->liststore();
+
+		$result = array (
+			array(
+				"store_id" 		=> "1",
+				"store"			=> "Hanaka Denpasar",
+				"alamat"		=> "Panjer",
+				"keterangan"	=> "ini keterangan hanaka denpasar",
+				"kontak"		=> "088812221222",
+				"status"		=> "0",
+				"user_id"		=> "admin",
+				"lastupdate" 	=> "2023-04-11 06:38:30"
+			),
+			array(
+				"store_id" 		=> "2",
+				"store"			=> "Hanaka Badung",
+				"alamat"		=> "Mengwi",
+				"keterangan"	=> "ini keterangan hanaka mengwi",
+				"kontak"		=> "088812221222",
+				"status"		=> "0",
+				"user_id"		=> "admin",
+				"lastupdate" 	=> "2023-04-11 06:38:30"
+			),
+			array(
+				"store_id" 		=> "3",
+				"store"			=> "Hanaka Jimbaran",
+				"alamat"		=> "Jimbaran",
+				"keterangan"	=> "ini keterangan hanaka Jimbaran",
+				"kontak"		=> "088812221222",
+				"status"		=> "0",
+				"user_id"		=> "admin",
+				"lastupdate" 	=> "2023-04-11 06:38:30"
+			),
+			array(
+				"store_id" 		=> "4",
+				"store"			=> "Hanaka Singaraja",
+				"alamat"		=> "Singaraja",
+				"keterangan"	=> "ini keterangan hanaka Singaraja",
+				"kontak"		=> "088812221222",
+				"status"		=> "0",
+				"user_id"		=> "admin",
+				"lastupdate" 	=> "2023-04-11 06:38:30"
+			),
+			array(
+				"store_id" 		=> "5",
+				"store"			=> "Hanaka Karangasem",
+				"alamat"		=> "Karangasem",
+				"keterangan"	=> "ini keterangan hanaka Karangasem",
+				"kontak"		=> "088812221222",
+				"status"		=> "0",
+				"user_id"		=> "admin",
+				"lastupdate" 	=> "2023-04-11 06:38:30"
+			),
+		);
 		echo json_encode($result);
+		die;
 	}
 
     public function tambah(){

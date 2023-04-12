@@ -1,0 +1,22 @@
+/* ADMIN SIDE BAR */
+.app-sidebar-menu .menu > .menu-item.menu-border-nama {
+    border-bottom: 1px dashed #33446c;
+}
+
+.table > thead > tr > th {
+    border-bottom-width: 1px !important;
+    font-size: 1em !important;
+    font-weight: 500 !important;
+}
+
+table.dataTable.table-striped > tbody > tr.odd td:nth-child(1),
+table.dataTable.table-striped > tbody > tr.even td:nth-child(1){
+    padding-left: 10px;
+}
+
+
+@media (min-width: 768px ){
+    .table > thead > tr > th {
+        font-size: 1.5em !important;
+    }
+}
