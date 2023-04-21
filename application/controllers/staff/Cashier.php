@@ -18,27 +18,26 @@ class Cashier extends CI_Controller {
 
 	public function index() {
 		$cekstatus  = $this->kasModel->openkas();
-		if ($cekstatus==5051){
-		    $this->session->set_flashdata("message","Silahkan masukkan kas awal dulu");
-		    redirect(base_url()."staff/kas");
-		    return;
-		}elseif ($cekstatus==5052){
-		    $this->session->set_flashdata("message","Silahkan tutup kas, dengan menghubungi store manager");
-		    redirect(base_url()."staff/kas/tutupharian");
-		    return;
-		}elseif ($cekstatus==5053){
-		    $this->session->set_flashdata("message","Store sudah di tutup, silahkan buka kembali besok");
-		    redirect(base_url()."staff/dashboard");
-		    return;
-		}
-		
+		// if ($cekstatus==5051){
+		//     $this->session->set_flashdata("message","Silahkan masukkan kas awal dulu");
+		//     redirect(base_url()."staff/kas");
+		//     return;
+		// }elseif ($cekstatus==5052){
+		//     $this->session->set_flashdata("message","Silahkan tutup kas, dengan menghubungi store manager");
+		//     redirect(base_url()."staff/kas/tutupharian");
+		//     return;
+		// }elseif ($cekstatus==5053){
+		//     $this->session->set_flashdata("message","Store sudah di tutup, silahkan buka kembali besok");
+		//     redirect(base_url()."staff/dashboard");
+		//     return;
+		// }
 		
 		$produk     = $this->stokModel->listproduk_withstok();
         $data = array(
             'title'		=> 'Penjualan',
+			'extracss'	=> 'staff/cashier/css/css_cash',
             'content'	=> 'staff/cashier/index',
 			'extra'		=> 'staff/cashier/js/js_cash',
-			'extracss'	=> 'staff/cashier/css/css_cash',
 			'produk'     => $produk,
 		);
 		$this->load->view('layout/wrapper', $data);

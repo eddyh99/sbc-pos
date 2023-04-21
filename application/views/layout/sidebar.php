@@ -1,8 +1,8 @@
 <!-- ====== Start Header ====== -->
-<div id="kt_app_header" class="app-header">
+<div id="kt_app_header"  class="app-header">
 
     <!-- ====== Start Header container ====== -->
-    <div class="app-container container-fluid d-flex align-items-stretch justify-content-between" id="kt_app_header_container">
+    <div class="app-container container-fluid bg-white d-flex align-items-stretch justify-content-between" id="kt_app_header_container">
 
         <!-- ====== Start sidebar mobile toggle ====== -->
         <div class="d-flex align-items-center d-lg-none ms-n2 me-2" title="Show sidebar menu">
@@ -65,17 +65,17 @@
 
 
 <!-- ======  Start Wrapper Side Bar ====== -->
-<div class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
+<div class="app-wrapper flex-column flex-row-fluid"  id="kt_app_wrapper">
 
     <!-- ====== Start Sidebar Desktop ======-->
-    <div id="kt_app_sidebar" class="app-sidebar flex-column" data-kt-drawer="true" data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="225px" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
+    <div id="kt_app_sidebar" class="app-sidebar flex-column" style="background-color: #202B46;" data-kt-drawer="true" data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="225px" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
 
         <!-- ====== Start Logo Desktop ===== -->
         <div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
 
             <!-- ====== Start Logo Desktop ===== -->
             <a href="#" class="app-sidebar-logo-default text-white fw-bold">
-                SBC Dashboard
+                <img alt="Logo" src="<?= base_url()?>assets/img/logo.png" class="h-30px app-sidebar-logo-default" />
             </a>
             <!--====== End Logo Desktop ===== -->
 
@@ -231,7 +231,7 @@
 
                                 <!-- ======  Start Menu item Brand ===== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="<?= base_url()?>dashboard#">
+                                    <a class="menu-link <?=@$side3?>" href="<?= base_url()?>admin/brand">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -242,7 +242,7 @@
 
                                 <!-- ======  Start Menu item Kategori ===== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="<?= base_url()?>dashboard#">
+                                    <a class="menu-link <?=@$side4?>" href="<?= base_url()?>admin/kategori">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -253,7 +253,7 @@
 
                                 <!-- ======  Start Menu item Size ===== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="<?= base_url()?>dashboard#">
+                                    <a class="menu-link <?=@$side5?>" href="<?= base_url()?>admin/size">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -292,18 +292,18 @@
 
                                 <!-- ====== Start Menu item Staff ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="<?= base_url()?>dashboard#">
+                                    <a class="menu-link <?= @$side6?>" href="<?= base_url()?>admin/assignstaff">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
-                                        <span class="menu-title">Staff</span>
+                                        <span class="menu-title">Assign Staff</span>
                                     </a>
                                 </div>
                                 <!-- ====== Start Menu item Staff ======-->
 
                                 <!--====== Start Menu item Produk ======-->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="<?= base_url()?>dashboard#">
+                                    <a class="menu-link <?= @$side7?>" href="<?= base_url()?>admin/produk">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -314,7 +314,7 @@
                                 
                                 <!--====== Start Menu item Produk Size ======-->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="<?= base_url()?>dashboard#">
+                                    <a class="menu-link <?= @$side8?>" href="<?= base_url()?>admin/produksize">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -325,7 +325,7 @@
 
                                 <!--====== Start Menu item Stok ======-->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="<?= base_url()?>dashboard#">
+                                    <a class="menu-link <?= @$side9?>" href="<?= base_url()?>admin/stok">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -342,7 +342,7 @@
 
                         <!-- ====== Start Menu item Member ====== -->
                         <div class="menu-item menu-accordion">
-                            <a class="menu-link" href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?=@$mn_member?>" href="<?= base_url()?>member">
                                 <span class="menu-icon">
                                     <span class="svg-icon svg-icon-2">
                                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -390,7 +390,7 @@
                             <div class="menu-sub menu-sub-accordion">
                                 <!--begin:Menu item-->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/list.html">
+                                    <a class="menu-link <?= @$side10?>" href="<?= base_url()?>admin/laporan/mutasi">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -401,7 +401,7 @@
 
                                 <!--===== Start Menu item Persediaan Detail ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side20?>" href="<?= base_url()?>admin/laporan/mutasidetail">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -412,7 +412,7 @@
 
                                 <!--===== Start Menu item Penjualan Summary ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side11?>" href="<?= base_url()?>admin/laporan/penjualan">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -423,7 +423,7 @@
 
                                 <!--===== Start Menu item Penjualan Brand ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side15?>" href="<?= base_url()?>admin/laporan/brand">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -434,7 +434,7 @@
 
                                 <!--===== Start Menu item Drop In/Drop Out ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side12?>" href="<?= base_url()?>admin/laporan/barang">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -445,7 +445,7 @@
 
                                 <!--===== Start Menu item Non Tunai ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side14?>" href="<?= base_url()?>admin/laporan/nontunai">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -456,7 +456,7 @@
 
                                 <!--===== Start Menu item Permintaan ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side17?>" href="<?= base_url()?>admin/laporan/request">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -467,7 +467,7 @@
 
                                 <!--===== Start Menu item Retur Konsumen ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side18?>" href="<?= base_url()?>admin/laporan/retur">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -478,7 +478,7 @@
 
                                 <!--===== Start Menu item Stok Out ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side19?>" href="<?= base_url()?>admin/laporan/stokout">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -489,7 +489,7 @@
 
                                 <!--===== Start Menu item Kas ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side21?>" href="<?= base_url()?>admin/laporan/kaskeluar">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -506,7 +506,7 @@
                         <!-- ====== Start Menu item Rekapan Harian ====== -->
                         <div class="menu-item menu-accordion">
                             <!-- ====== Start Menu link ====== -->
-                            <a class="menu-link " href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?= @$mn_tutup?>" href="<?= base_url()?>staff/kas/tutupharian">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
@@ -530,7 +530,7 @@
                         <!-- ====== Start Menu item Stock Out ====== -->
                         <div  class="menu-item menu-accordion">
                             <!-- ====== Start Menu link ====== -->
-                            <a class="menu-link" href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?=@$mn_pinjam?>" href="<?= base_url()?>admin/pinjam">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
@@ -553,7 +553,7 @@
                         <!-- ====== Start Menu item Request Barang ====== -->
                         <div  class="menu-item menu-accordion">
                             <!-- ====== Start Menu link ====== -->
-                            <a class="menu-link" href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?= @$mn_req?>" href="<?= base_url()?>admin/moving">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
@@ -574,7 +574,7 @@
                         <!-- ====== Start Menu item Konfirmasi Permintaan ====== -->
                         <div  class="menu-item menu-accordion">
                             <!-- ====== Start Menu link ====== -->
-                            <a class="menu-link " href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?= @$mn_confirm?>" href="<?= base_url()?>admin/moving/konfirm">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
@@ -661,7 +661,7 @@
 
                                 <!-- ======  Start Menu item Store ===== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="<?= base_url()?>dashboard#">
+                                    <a class="menu-link <?=@$side2?>" href="<?= base_url()?>admin/store">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -672,7 +672,7 @@
 
                                 <!-- ======  Start Menu item Brand ===== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="<?= base_url()?>dashboard#">
+                                    <a class="menu-link <?=@$side3?>" href="<?= base_url()?>admin/brand">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -683,7 +683,7 @@
 
                                 <!-- ======  Start Menu item Kategori ===== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="<?= base_url()?>dashboard#">
+                                    <a class="menu-link <?=@$side4?>" href="<?= base_url()?>admin/kategori">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -694,7 +694,7 @@
 
                                 <!-- ======  Start Menu item Size ===== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="<?= base_url()?>dashboard#">
+                                    <a class="menu-link <?=@$side5?>" href="<?= base_url()?>admin/size">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -732,18 +732,18 @@
 
                                 <!-- ====== Start Menu item Staff ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="<?= base_url()?>dashboard#">
+                                    <a class="menu-link <?=@$side6?>" href="<?= base_url()?>admin/assignstaff">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
-                                        <span class="menu-title">Staff</span>
+                                        <span class="menu-title">Assign Staff</span>
                                     </a>
                                 </div>
                                 <!-- ====== Start Menu item Staff ======-->
 
                                 <!--====== Start Menu item Produk ======-->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="<?= base_url()?>dashboard#">
+                                    <a class="menu-link <?=@$side7?>" href="<?= base_url()?>admin/produk">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -754,7 +754,7 @@
                                 
                                 <!--====== Start Menu item Produk Size ======-->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="<?= base_url()?>dashboard#">
+                                    <a class="menu-link <?=@$side8?>" href="<?= base_url()?>admin/produksize">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -765,7 +765,7 @@
 
                                 <!--====== Start Menu item Stok Awal  ======-->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="<?= base_url()?>dashboard#">
+                                    <a class="menu-link <?=@$side9?>" href="<?= base_url()?>admin/stok">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -776,7 +776,7 @@
 
                                 <!--====== Start Menu item Restock  ======-->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="<?= base_url()?>dashboard#">
+                                    <a class="menu-link <?=@$side16?>" href="<?= base_url()?>admin/stok/restok">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -792,7 +792,7 @@
 
                         <!-- ====== Start Menu item Member ====== -->
                         <div class="menu-item menu-accordion">
-                            <a class="menu-link" href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?=@$mn_member?>" href="<?= base_url()?>member">
                                 <span class="menu-icon">
                                     <span class="svg-icon svg-icon-2">
                                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -840,7 +840,7 @@
                             <div class="menu-sub menu-sub-accordion">
                                 <!--begin:Menu item-->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/list.html">
+                                    <a class="menu-link <?= @$side10?>" href="<?= base_url()?>admin/laporan/mutasi">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -851,7 +851,7 @@
 
                                 <!--===== Start Menu item Persediaan Detail ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side20?>" href="<?= base_url()?>admin/laporan/mutasidetail">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -862,7 +862,7 @@
 
                                 <!--===== Start Menu item Penjualan Summary ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side11?>" href="<?= base_url()?>admin/laporan/penjualan">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -873,7 +873,7 @@
 
                                 <!--===== Start Menu item Penjualan Brand ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side15?>" href="<?= base_url()?>admin/laporan/brand">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -884,7 +884,7 @@
 
                                 <!--===== Start Menu item Drop In/Drop Out ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side12?>" href="<?= base_url()?>admin/laporan/barang">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -895,7 +895,7 @@
 
                                 <!--===== Start Menu item Non Tunai ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side14?>" href="<?= base_url()?>admin/laporan/nontunai">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -906,7 +906,7 @@
 
                                 <!--===== Start Menu item Permintaan ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side17?>" href="<?= base_url()?>admin/laporan/request">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -917,7 +917,7 @@
 
                                 <!--===== Start Menu item Retur Konsumen ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side18?>" href="<?= base_url()?>admin/laporan/retur">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -928,7 +928,7 @@
 
                                 <!--===== Start Menu item Stok Out ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side19?>" href="<?= base_url()?>admin/laporan/stokout">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -939,7 +939,7 @@
 
                                 <!--===== Start Menu item Kas ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side21?>" href="<?= base_url()?>admin/laporan/kaskeluar">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -956,7 +956,7 @@
                         <!-- ====== Start Menu item Rekapan Harian ====== -->
                         <div class="menu-item menu-accordion">
                             <!-- ====== Start Menu link ====== -->
-                            <a class="menu-link " href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?= @$mn_tutup?>" href="<?= base_url()?>staff/kas/tutupharian">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
@@ -979,7 +979,7 @@
                         <!-- ====== Start Menu item Stock Out ====== -->
                         <div  class="menu-item menu-accordion">
                             <!-- ====== Start Menu link ====== -->
-                            <a class="menu-link" href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?=@$mn_pinjam?>" href="<?= base_url()?>admin/pinjam">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
@@ -1000,7 +1000,7 @@
                         <!-- ====== Start Menu item Request Barang ====== -->
                         <div  class="menu-item menu-accordion">
                             <!-- ====== Start Menu link ====== -->
-                            <a class="menu-link" href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?= @$mn_req?>" href="<?= base_url()?>admin/moving">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
@@ -1021,7 +1021,7 @@
                         <!-- ====== Start Menu item Konfirmasi Permintaan ====== -->
                         <div  class="menu-item menu-accordion">
                             <!-- ====== Start Menu link ====== -->
-                            <a class="menu-link " href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?= @$mn_confirm?>" href="<?= base_url()?>admin/moving/konfirm">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
@@ -1038,141 +1038,182 @@
                             <!--====== End Menu link ====== -->
                         </div>
                         <!--====== End Menu item Konfirmasi Permintaan ====== -->
+
+                        <!-- ====== Start Menu item Konfirmasi Opname ====== -->
+                        <div  class="menu-item menu-accordion">
+                            <!-- ====== Start Menu link ====== -->
+                            <a class="menu-link <?= @$mn_appopname?>" href="<?= base_url()?>admin/opname/konfirm">
+                                <span class="menu-icon">
+                                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                                    <span class="svg-icon svg-icon-2">
+                                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6 7C4.89543 7 4 7.89543 4 9V39C4 40.1046 4.89543 41 6 41H42C43.1046 41 44 40.1046 44 39V13C44 11.8954 43.1046 11 42 11H24L19 7H6ZM15 26.728L17.8284 23.8996L22.0711 28.1422L31.9706 18.2427L34.799 21.0712L22.0711 33.7991L15 26.728Z" fill="currentColor"/>
+                                            <path d="M17.8284 23.8996L15 26.728L22.0711 33.7991L34.799 21.0712L31.9706 18.2427L22.0711 28.1422L17.8284 23.8996Z" fill="#324558"/>
+                                        </svg>
+
+                                    </span>
+                                    <!--end::Svg Icon-->
+                                </span>
+                                <span class="menu-title">Konfirmasi Opname</span>
+                            </a>
+                            <!--====== End Menu link ====== -->
+                        </div>
+                        <!--====== End Menu item Konfirmasi Opname ====== -->
+
+                        <!-- ====== Start Menu item Penyesuaian Stok ====== -->
+                        <div  class="menu-item menu-accordion">
+                            <!-- ====== Start Menu link ====== -->
+                            <a class="menu-link <?= @$mn_opname?>" href="<?= base_url()?>admin/opname">
+                                <span class="menu-icon">
+                                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                                    <span class="svg-icon svg-icon-2">
+                                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6 7C4.89543 7 4 7.89543 4 9V39C4 40.1046 4.89543 41 6 41H42C43.1046 41 44 40.1046 44 39V13C44 11.8954 43.1046 11 42 11H24L19 7H6ZM15 26.728L17.8284 23.8996L22.0711 28.1422L31.9706 18.2427L34.799 21.0712L22.0711 33.7991L15 26.728Z" fill="currentColor"/>
+                                            <path d="M17.8284 23.8996L15 26.728L22.0711 33.7991L34.799 21.0712L31.9706 18.2427L22.0711 28.1422L17.8284 23.8996Z" fill="#324558"/>
+                                        </svg>
+
+                                    </span>
+                                    <!--end::Svg Icon-->
+                                </span>
+                                <span class="menu-title">Penyesuaian Stok</span>
+                            </a>
+                            <!--====== End Menu link ====== -->
+                        </div>
+                        <!--====== End Menu item Penyesuaian Stok ====== -->
                         
                     <?php }elseif(@$_SESSION["logged_status"]["role"]=="Office Staff"){?>
-                            
-                            <!-- ====== Start Menu item Dashboard ====== -->
-                            <div class="menu-item menu-accordion">
-                                <!-- ====== Start Menu link ====== -->
-                                <a class="menu-link <?=@$mn_dash?>" href="<?=base_url()?>dashboard">
-                                    <span class="menu-icon">
-                                        <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
-                                        <span class="svg-icon svg-icon-2">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor" />
-                                                <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2" fill="currentColor" />
-                                                <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2" fill="currentColor" />
-                                                <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2" fill="currentColor" />
-                                            </svg>
-                                        </span>
-                                        <!--end::Svg Icon-->
+                        <!-- ====== Start Menu item Dashboard ====== -->
+                        <div class="menu-item menu-accordion">
+                            <!-- ====== Start Menu link ====== -->
+                            <a class="menu-link <?=@$mn_dash?>" href="<?=base_url()?>dashboard">
+                                <span class="menu-icon">
+                                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                                    <span class="svg-icon svg-icon-2">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor" />
+                                            <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2" fill="currentColor" />
+                                            <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2" fill="currentColor" />
+                                            <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2" fill="currentColor" />
+                                        </svg>
                                     </span>
-                                    <span class="menu-title">Dashboard</span>
-                                </a>
-                                <!--====== End Menu link ====== -->
-                            </div>
-                            <!--====== End Menu item Dashboard ====== -->
-    
-                            <!-- ===== Start Menu item Lapoan ====== -->
-                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-                                <!--===== Start Menu item Laporan ====== -->
-                                <span class="menu-link">
-                                    <span class="menu-icon">
-                                        <span class="svg-icon svg-icon-2">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M13 5.91517C15.8 6.41517 18 8.81519 18 11.8152C18 12.5152 17.9 13.2152 17.6 13.9152L20.1 15.3152C20.6 15.6152 21.4 15.4152 21.6 14.8152C21.9 13.9152 22.1 12.9152 22.1 11.8152C22.1 7.01519 18.8 3.11521 14.3 2.01521C13.7 1.91521 13.1 2.31521 13.1 3.01521V5.91517H13Z" fill="currentColor" />
-                                                <path opacity="0.3" d="M19.1 17.0152C19.7 17.3152 19.8 18.1152 19.3 18.5152C17.5 20.5152 14.9 21.7152 12 21.7152C9.1 21.7152 6.50001 20.5152 4.70001 18.5152C4.30001 18.0152 4.39999 17.3152 4.89999 17.0152L7.39999 15.6152C8.49999 16.9152 10.2 17.8152 12 17.8152C13.8 17.8152 15.5 17.0152 16.6 15.6152L19.1 17.0152ZM6.39999 13.9151C6.19999 13.2151 6 12.5152 6 11.8152C6 8.81517 8.2 6.41515 11 5.91515V3.01519C11 2.41519 10.4 1.91519 9.79999 2.01519C5.29999 3.01519 2 7.01517 2 11.8152C2 12.8152 2.2 13.8152 2.5 14.8152C2.7 15.4152 3.4 15.7152 4 15.3152L6.39999 13.9151Z" fill="currentColor" />
-                                            </svg>
-                                        </span>
-                                    </span>
-                                    <span class="menu-title">Laporan</span>
-                                    <span class="menu-arrow"></span>
+                                    <!--end::Svg Icon-->
                                 </span>
-                                <!--===== End Menu item Lapoan ====== -->
-    
-                                <!--===== Start Sub Menu Laporan ====== -->
-                                <div class="menu-sub menu-sub-accordion">
-                                    <!--begin:Menu item-->
-                                    <div class="menu-item">
-                                        <a class="menu-link" href="../../demo1/dist/apps/projects/list.html">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Persediaan Global</span>
-                                        </a>
-                                    </div>
-                                    <!--===== End Menu item Persediaan Global ====== -->
-    
-                                    <!--===== Start Menu item Persediaan Detail ====== -->
-                                    <div class="menu-item">
-                                        <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Persediaan Detail</span>
-                                        </a>
-                                    </div>
-                                    <!--End Menu item Persediaan Detail-->
-    
+                                <span class="menu-title">Dashboard</span>
+                            </a>
+                            <!--====== End Menu link ====== -->
+                        </div>
+                        <!--====== End Menu item Dashboard ====== -->
+
+                        <!-- ===== Start Menu item Laporan ====== -->
+                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                            <!--===== Start Menu item Laporan ====== -->
+                            <span class="menu-link">
+                                <span class="menu-icon">
+                                    <span class="svg-icon svg-icon-2">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M13 5.91517C15.8 6.41517 18 8.81519 18 11.8152C18 12.5152 17.9 13.2152 17.6 13.9152L20.1 15.3152C20.6 15.6152 21.4 15.4152 21.6 14.8152C21.9 13.9152 22.1 12.9152 22.1 11.8152C22.1 7.01519 18.8 3.11521 14.3 2.01521C13.7 1.91521 13.1 2.31521 13.1 3.01521V5.91517H13Z" fill="currentColor" />
+                                            <path opacity="0.3" d="M19.1 17.0152C19.7 17.3152 19.8 18.1152 19.3 18.5152C17.5 20.5152 14.9 21.7152 12 21.7152C9.1 21.7152 6.50001 20.5152 4.70001 18.5152C4.30001 18.0152 4.39999 17.3152 4.89999 17.0152L7.39999 15.6152C8.49999 16.9152 10.2 17.8152 12 17.8152C13.8 17.8152 15.5 17.0152 16.6 15.6152L19.1 17.0152ZM6.39999 13.9151C6.19999 13.2151 6 12.5152 6 11.8152C6 8.81517 8.2 6.41515 11 5.91515V3.01519C11 2.41519 10.4 1.91519 9.79999 2.01519C5.29999 3.01519 2 7.01517 2 11.8152C2 12.8152 2.2 13.8152 2.5 14.8152C2.7 15.4152 3.4 15.7152 4 15.3152L6.39999 13.9151Z" fill="currentColor" />
+                                        </svg>
+                                    </span>
+                                </span>
+                                <span class="menu-title">Laporan</span>
+                                <span class="menu-arrow"></span>
+                            </span>
+                            <!--===== End Menu item Lapoan ====== -->
+
+                            <!--===== Start Sub Menu Laporan ====== -->
+                            <div class="menu-sub menu-sub-accordion">
+                                <!--begin:Menu item-->
+                                <div class="menu-item">
+                                    <a class="menu-link <?= @$side10?>" href="<?= base_url()?>admin/laporan/mutasi">
+                                        <span class="menu-bullet">
+                                            <span class="bullet bullet-dot"></span>
+                                        </span>
+                                        <span class="menu-title">Persediaan Global</span>
+                                    </a>
                                 </div>
-                                <!--===== End Sub Menu Laporan ======-->
-                            </div>
-                            <!--===== Start Menu item Lapoan ====== -->
-    
-                            <!-- ====== Start Menu item Rekapan Harian ====== -->
-                            <div class="menu-item menu-accordion">
-                                <!-- ====== Start Menu link ====== -->
-                                <a class="menu-link " href="<?= base_url()?>dashboard#">
-                                    <span class="menu-icon">
-                                        <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
-                                        <span class="svg-icon svg-icon-2">
-                                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M29.917 8H39C40.1046 8 41 8.89543 41 10V42C41 43.1046 40.1046 44 39 44H9C7.89543 44 7 43.1046 7 42V10C7 8.89543 7.89543 8 9 8H18.083C18.559 5.16229 21.027 3 24 3C26.973 3 29.441 5.16229 29.917 8ZM26 9C26 10.1046 25.1046 11 24 11C22.8954 11 22 10.1046 22 9C22 7.89543 22.8954 7 24 7C25.1046 7 26 7.89543 26 9ZM36.9142 19.4142L32.3284 24H27V20H30.6716L34.0858 16.5858L36.9142 19.4142ZM13 20H23V24H13V20ZM13 30H23V34H13V30ZM36.9142 29.4142L32.3284 34H27V30H30.6716L34.0858 26.5858L36.9142 29.4142Z" fill="currentColor"/>
-                                                <path d="M36.9142 19.4142L32.3284 24H27V20H30.6716L34.0858 16.5858L36.9142 19.4142Z" fill="#324558"/>
-                                                <path d="M13 20H23V24H13V20Z" fill="#324558"/>
-                                                <path d="M13 30H23V34H13V30Z" fill="#324558"/>
-                                                <path d="M36.9142 29.4142L32.3284 34H27V30H30.6716L34.0858 26.5858L36.9142 29.4142Z" fill="#324558"/>
-                                            </svg>
+                                <!--===== End Menu item Persediaan Global ====== -->
+
+                                <!--===== Start Menu item Persediaan Detail ====== -->
+                                <div class="menu-item">
+                                    <a class="menu-link <?= @$side20?>" href="<?= base_url()?>admin/laporan/mutasidetail">
+                                        <span class="menu-bullet">
+                                            <span class="bullet bullet-dot"></span>
                                         </span>
-                                        <!--end::Svg Icon-->
-                                    </span>
-                                    <span class="menu-title">Rekapan Harian</span>
-                                </a>
-                                <!--====== End Menu link ====== -->
+                                        <span class="menu-title">Persediaan Detail</span>
+                                    </a>
+                                </div>
+                                <!--End Menu item Persediaan Detail-->
+
                             </div>
-                            <!--====== End Menu item Rekapan Harian ====== -->
-    
-                            <!-- ====== Start Menu item Request Barang ====== -->
-                            <div  class="menu-item menu-accordion">
-                                <!-- ====== Start Menu link ====== -->
-                                <a class="menu-link" href="<?= base_url()?>dashboard#">
-                                    <span class="menu-icon">
-                                        <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
-                                        <span class="svg-icon svg-icon-2">
-                                            <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M22.9071 28.5687L12.2176 23.5053L19.9072 18.2793L12.4072 10.7793L2.40723 17.7793L6.22071 21.7517V36.5676C6.22071 37.3124 6.63456 37.9955 7.2947 38.3403L22.9071 46.4957V28.5687Z" fill="currentColor"/>
-                                                <path d="M25.9072 28.5688V46.4958L41.5198 38.3403C42.18 37.9955 42.5938 37.3124 42.5938 36.5676V21.7517L46.4073 17.7793L36.4073 10.7793L28.9073 18.2793L36.5969 23.5053L25.9072 28.5688Z" fill="currentColor"/>
-                                                <path d="M26.4072 2.2793H22.4072V8.2793H17.4072L24.4072 16.2793L31.4072 8.2793H26.4072V2.2793Z" fill="#324558"/>
-                                            </svg>
-                                        </span>
-                                        <!--end::Svg Icon-->
+                            <!--===== End Sub Menu Laporan ======-->
+                        </div>
+                        <!--===== Start Menu item Laporan ====== -->
+
+                        <!-- ====== Start Menu item Rekapan Harian ====== -->
+                        <div class="menu-item menu-accordion">
+                            <!-- ====== Start Menu link ====== -->
+                            <a class="menu-link <?= @$mn_tutup?>" href="<?= base_url()?>staff/kas/tutupharian">
+                                <span class="menu-icon">
+                                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                                    <span class="svg-icon svg-icon-2">
+                                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M29.917 8H39C40.1046 8 41 8.89543 41 10V42C41 43.1046 40.1046 44 39 44H9C7.89543 44 7 43.1046 7 42V10C7 8.89543 7.89543 8 9 8H18.083C18.559 5.16229 21.027 3 24 3C26.973 3 29.441 5.16229 29.917 8ZM26 9C26 10.1046 25.1046 11 24 11C22.8954 11 22 10.1046 22 9C22 7.89543 22.8954 7 24 7C25.1046 7 26 7.89543 26 9ZM36.9142 19.4142L32.3284 24H27V20H30.6716L34.0858 16.5858L36.9142 19.4142ZM13 20H23V24H13V20ZM13 30H23V34H13V30ZM36.9142 29.4142L32.3284 34H27V30H30.6716L34.0858 26.5858L36.9142 29.4142Z" fill="currentColor"/>
+                                            <path d="M36.9142 19.4142L32.3284 24H27V20H30.6716L34.0858 16.5858L36.9142 19.4142Z" fill="#324558"/>
+                                            <path d="M13 20H23V24H13V20Z" fill="#324558"/>
+                                            <path d="M13 30H23V34H13V30Z" fill="#324558"/>
+                                            <path d="M36.9142 29.4142L32.3284 34H27V30H30.6716L34.0858 26.5858L36.9142 29.4142Z" fill="#324558"/>
+                                        </svg>
                                     </span>
-                                    <span class="menu-title">Request Barang</span>
-                                </a>
-                                <!--====== End Menu link ====== -->
-                            </div>
-                            <!--====== End Menu item Request Barang ====== -->
-    
-                            <!-- ====== Start Menu item Konfirmasi Permintaan ====== -->
-                            <div  class="menu-item menu-accordion">
-                                <!-- ====== Start Menu link ====== -->
-                                <a class="menu-link " href="<?= base_url()?>dashboard#">
-                                    <span class="menu-icon">
-                                        <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
-                                        <span class="svg-icon svg-icon-2">
-                                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6 7C4.89543 7 4 7.89543 4 9V39C4 40.1046 4.89543 41 6 41H42C43.1046 41 44 40.1046 44 39V13C44 11.8954 43.1046 11 42 11H24L19 7H6ZM26.5 17L26 28H22L21.5 17H26.5ZM22 35V31H26V35H22Z" fill="currentColor"/>
-                                                <path d="M22 28H26L26.5 17H21.5L22 28Z" fill="#324558"/>
-                                                <path d="M26 31H22V35H26V31Z" fill="#324558"/>
-                                            </svg>
-                                        </span>
-                                        <!--end::Svg Icon-->
+                                    <!--end::Svg Icon-->
+                                </span>
+                                <span class="menu-title">Rekapan Harian</span>
+                            </a>
+                            <!--====== End Menu link ====== -->
+                        </div>
+                        <!--====== End Menu item Rekapan Harian ====== -->
+
+                        <!-- ====== Start Menu item Request Barang ====== -->
+                        <div  class="menu-item menu-accordion">
+                            <!-- ====== Start Menu link ====== -->
+                            <a class="menu-link <?=@$mn_req?>" href="<?= base_url()?>admin/moving">
+                                <span class="menu-icon">
+                                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                                    <span class="svg-icon svg-icon-2">
+                                        <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M22.9071 28.5687L12.2176 23.5053L19.9072 18.2793L12.4072 10.7793L2.40723 17.7793L6.22071 21.7517V36.5676C6.22071 37.3124 6.63456 37.9955 7.2947 38.3403L22.9071 46.4957V28.5687Z" fill="currentColor"/>
+                                            <path d="M25.9072 28.5688V46.4958L41.5198 38.3403C42.18 37.9955 42.5938 37.3124 42.5938 36.5676V21.7517L46.4073 17.7793L36.4073 10.7793L28.9073 18.2793L36.5969 23.5053L25.9072 28.5688Z" fill="currentColor"/>
+                                            <path d="M26.4072 2.2793H22.4072V8.2793H17.4072L24.4072 16.2793L31.4072 8.2793H26.4072V2.2793Z" fill="#324558"/>
+                                        </svg>
                                     </span>
-                                    <span class="menu-title">Konfirmasi Permintaan</span>
-                                </a>
-                                <!--====== End Menu link ====== -->
-                            </div>
-                            <!--====== End Menu item Konfirmasi Permintaan ====== -->
+                                    <!--end::Svg Icon-->
+                                </span>
+                                <span class="menu-title">Request Barang</span>
+                            </a>
+                            <!--====== End Menu link ====== -->
+                        </div>
+                        <!--====== End Menu item Request Barang ====== -->
+
+                        <!-- ====== Start Menu item Konfirmasi Permintaan ====== -->
+                        <div  class="menu-item menu-accordion">
+                            <!-- ====== Start Menu link ====== -->
+                            <a class="menu-link <?= @$mn_confirm?>" href="<?= base_url()?>admin/moving/konfirm">
+                                <span class="menu-icon">
+                                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                                    <span class="svg-icon svg-icon-2">
+                                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6 7C4.89543 7 4 7.89543 4 9V39C4 40.1046 4.89543 41 6 41H42C43.1046 41 44 40.1046 44 39V13C44 11.8954 43.1046 11 42 11H24L19 7H6ZM26.5 17L26 28H22L21.5 17H26.5ZM22 35V31H26V35H22Z" fill="currentColor"/>
+                                            <path d="M22 28H26L26.5 17H21.5L22 28Z" fill="#324558"/>
+                                            <path d="M26 31H22V35H26V31Z" fill="#324558"/>
+                                        </svg>
+                                    </span>
+                                    <!--end::Svg Icon-->
+                                </span>
+                                <span class="menu-title">Konfirmasi Permintaan</span>
+                            </a>
+                            <!--====== End Menu link ====== -->
+                        </div>
+                        <!--====== End Menu item Konfirmasi Permintaan ====== -->
                     <?php } elseif(@$_SESSION["logged_status"]["role"]=="Store Manager"){?>
 
                         <!-- ====== Start Menu item Dashboard ====== -->
@@ -1243,7 +1284,7 @@
 
                                 <!-- ======  Start Menu item Store ===== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="<?= base_url()?>dashboard#">
+                                    <a class="menu-link <?=@$side2?>" href="<?= base_url()?>admin/store">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1282,7 +1323,7 @@
 
                                 <!-- ====== Start Menu item Staff ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="<?= base_url()?>dashboard#">
+                                    <a class="menu-link <?=@$side6?>" href="<?= base_url()?>admin/assignstaff">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1299,7 +1340,7 @@
 
                         <!-- ====== Start Menu item Member ====== -->
                         <div class="menu-item menu-accordion">
-                            <a class="menu-link" href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?=@$mn_member?>" href="<?= base_url()?>member">
                                 <span class="menu-icon">
                                     <span class="svg-icon svg-icon-2">
                                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1347,7 +1388,7 @@
                             <div class="menu-sub menu-sub-accordion">
                                 <!--begin:Menu item-->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/list.html">
+                                    <a class="menu-link <?= @$side10?>" href="<?= base_url()?>admin/laporan/mutasi">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1358,7 +1399,7 @@
 
                                 <!--===== Start Menu item Persediaan Detail ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side20?>" href="<?= base_url()?>admin/laporan/mutasidetail">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1369,7 +1410,7 @@
 
                                 <!--===== Start Menu item Penjualan Summary ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side11?>" href="<?= base_url()?>admin/laporan/penjualan">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1380,7 +1421,7 @@
 
                                 <!--===== Start Menu item Penjualan Brand ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side15?>" href="<?= base_url()?>admin/laporan/brand">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1391,7 +1432,7 @@
 
                                 <!--===== Start Menu item Drop In/Drop Out ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side12?>" href="<?= base_url()?>admin/laporan/barang">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1402,7 +1443,7 @@
 
                                 <!--===== Start Menu item Non Tunai ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side14?>" href="<?= base_url()?>admin/laporan/nontunai">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1413,7 +1454,7 @@
 
                                 <!--===== Start Menu item Permintaan ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side17?>" href="<?= base_url()?>admin/laporan/request">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1424,7 +1465,7 @@
 
                                 <!--===== Start Menu item Retur Konsumen ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side18?>" href="<?= base_url()?>admin/laporan/retur">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1435,7 +1476,7 @@
 
                                 <!--===== Start Menu item Stok Out ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side19?>" href="<?= base_url()?>admin/laporan/stokout">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1446,7 +1487,7 @@
 
                                 <!--===== Start Menu item Kas ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side21?>" href="<?= base_url()?>admin/laporan/kaskeluar">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1463,7 +1504,7 @@
                         <!-- ====== Start Menu item Stok Opname ====== -->
                         <div class="menu-item menu-accordion">
                             <!-- ====== Start Menu link ====== -->
-                            <a class="menu-link " href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?= @$mn_opname?>" href="<?= base_url()?>admin/opname">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
@@ -1487,7 +1528,7 @@
                         <!-- ====== Start Menu item Ganti Cara Bayar ====== -->
                         <div class="menu-item menu-accordion">
                             <!-- ====== Start Menu link ====== -->
-                            <a class="menu-link " href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?=@$mn_bayar?>" href="<?= base_url()?>admin/bayar">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
@@ -1509,7 +1550,7 @@
                         <!-- ====== Start Menu item Stock Out ====== -->
                         <div  class="menu-item menu-accordion">
                             <!-- ====== Start Menu link ====== -->
-                            <a class="menu-link" href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?=@$mn_pinjam?>" href="<?= base_url()?>admin/pinjam">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
@@ -1531,7 +1572,7 @@
                         <!-- ====== Start Menu item Request Barang ====== -->
                         <div  class="menu-item menu-accordion">
                             <!-- ====== Start Menu link ====== -->
-                            <a class="menu-link" href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?= @$mn_req?>" href="<?= base_url()?>admin/moving">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
@@ -1552,7 +1593,7 @@
                         <!-- ====== Start Menu item Konfirmasi Permintaan ====== -->
                         <div  class="menu-item menu-accordion">
                             <!-- ====== Start Menu link ====== -->
-                            <a class="menu-link " href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?= @$mn_confirm?>" href="<?= base_url()?>admin/moving/konfirm">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
@@ -1574,7 +1615,7 @@
                         <!-- ====== Start Menu item Penjualan ====== -->
                         <div  class="menu-item menu-accordion">
                             <!-- ====== Start Menu link ====== -->
-                            <a class="menu-link " href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?=@$mn_cashier?>" href="<?= base_url()?>staff/cashier">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
@@ -1597,7 +1638,7 @@
                         <!-- ====== Start Menu item Kas ====== -->
                         <div  class="menu-item menu-accordion">
                             <!-- ====== Start Menu link ====== -->
-                            <a class="menu-link " href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?=@$mn_cash?>" href="<?= base_url()?>staff/kas">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
@@ -1620,7 +1661,7 @@
                         <!-- ====== Start Menu item Rekapan Harian ====== -->
                         <div class="menu-item menu-accordion">
                             <!-- ====== Start Menu link ====== -->
-                            <a class="menu-link " href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?= @$mn_tutup?>" href="<?= base_url()?>staff/kas/tutupharian">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
@@ -1644,7 +1685,7 @@
                         <!-- ====== Start Menu Retur Customer ====== -->
                         <div class="menu-item -accordion">
                             <!-- ====== Start Menu link ====== -->
-                            <a class="menu-link " href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?=@$mn_retur?>" href="<?= base_url()?>staff/retur">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
@@ -1668,7 +1709,7 @@
                         <!-- ====== Start Menu  Pencarian ====== -->
                         <div class="menu-item menu-accordion">
                             <!-- ====== Start Menu link ====== -->
-                            <a class="menu-link " href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?=@$mn_cari?>" href="<?= base_url()?>staff/pencarian">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
@@ -1693,7 +1734,7 @@
                         <div class="menu-item menu-accordion">
 
                             <!-- ====== Start Menu link ====== -->
-                            <a class="menu-link <?=@$mn_dash?>" href="<?=base_url()?>dashboard">
+                            <a class="menu-link <?=@$mn_dash?>" href="<?=base_url()?>staff/dashboard">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
@@ -1716,7 +1757,7 @@
                         <!-- ====== Start Menu item Penjualan ====== -->
                         <div  class="menu-item menu-accordion">
                             <!-- ====== Start Menu link ====== -->
-                            <a class="menu-link " href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?=@$mn_cashier?>" href="<?= base_url()?>staff/cashier">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
@@ -1738,7 +1779,7 @@
 
                         <!-- ====== Start Menu item Member ====== -->
                         <div class="menu-item menu-accordion">
-                            <a class="menu-link" href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?=@$mn_member?>" href="<?= base_url()?>member">
                                 <span class="menu-icon">
                                     <span class="svg-icon svg-icon-2">
                                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1778,7 +1819,7 @@
                             <div class="menu-sub menu-sub-accordion">
                                 <!--begin:Menu item-->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/list.html">
+                                    <a class="menu-link <?=@$side10?>" href="<?= base_url()?>admin/laporan/mutasi">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1789,7 +1830,7 @@
 
                                 <!--===== Start Menu item Persediaan Detail ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side20?>" href="<?= base_url()?>admin/laporan/mutasidetail">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1800,7 +1841,7 @@
 
                                 <!--===== Start Menu item Penjualan Summary ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side11?>" href="<?= base_url()?>admin/laporan/penjualan">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1811,7 +1852,7 @@
 
                                 <!--===== Start Menu item Penjualan Brand ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side15?>" href="<?= base_url()?>admin/laporan/brand">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1822,7 +1863,7 @@
 
                                 <!--===== Start Menu item Drop In/Drop Out ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side12?>" href="<?= base_url()?>admin/laporan/barang">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1833,7 +1874,7 @@
 
                                 <!--===== Start Menu item Non Tunai ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side14?>" href="<?= base_url()?>admin/laporan/nontunai">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1844,7 +1885,7 @@
 
                                 <!--===== Start Menu item Permintaan ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side17?>" href="<?= base_url()?>admin/laporan/request">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1855,7 +1896,7 @@
 
                                 <!--===== Start Menu item Retur Konsumen ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side18?>" href="<?= base_url()?>admin/laporan/retur">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1866,7 +1907,7 @@
 
                                 <!--===== Start Menu item Stok Out ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side19?>" href="<?= base_url()?>admin/laporan/stokout">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1877,7 +1918,7 @@
 
                                 <!--===== Start Menu item Kas ====== -->
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo1/dist/apps/projects/project.html">
+                                    <a class="menu-link <?= @$side21?>" href="<?= base_url()?>admin/laporan/kaskeluar">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
@@ -1894,7 +1935,7 @@
                         <!-- ====== Start Menu item Kas ====== -->
                         <div  class="menu-item menu-accordion">
                             <!-- ====== Start Menu link ====== -->
-                            <a class="menu-link " href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?=@$mn_cash?>" href="<?= base_url()?>staff/kas">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
@@ -1917,7 +1958,7 @@
                         <!-- ====== Start Menu item Rekapan Harian ====== -->
                         <div class="menu-item menu-accordion">
                             <!-- ====== Start Menu link ====== -->
-                            <a class="menu-link " href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?= @$mn_tutup?>" href="<?= base_url()?>staff/kas/tutupharian">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
@@ -1939,11 +1980,31 @@
                         <!--====== End Menu item Rekapan Harian ====== -->
 
                         
+                        <!-- ====== Start Menu item Request Barang ====== -->
+                        <div  class="menu-item menu-accordion">
+                            <!-- ====== Start Menu link ====== -->
+                            <a class="menu-link <?= @$mn_req?>" href="<?= base_url()?>admin/moving">
+                                <span class="menu-icon">
+                                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                                    <span class="svg-icon svg-icon-2">
+                                        <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M22.9071 28.5687L12.2176 23.5053L19.9072 18.2793L12.4072 10.7793L2.40723 17.7793L6.22071 21.7517V36.5676C6.22071 37.3124 6.63456 37.9955 7.2947 38.3403L22.9071 46.4957V28.5687Z" fill="currentColor"/>
+                                            <path d="M25.9072 28.5688V46.4958L41.5198 38.3403C42.18 37.9955 42.5938 37.3124 42.5938 36.5676V21.7517L46.4073 17.7793L36.4073 10.7793L28.9073 18.2793L36.5969 23.5053L25.9072 28.5688Z" fill="currentColor"/>
+                                            <path d="M26.4072 2.2793H22.4072V8.2793H17.4072L24.4072 16.2793L31.4072 8.2793H26.4072V2.2793Z" fill="#324558"/>
+                                        </svg>
+                                    </span>
+                                    <!--end::Svg Icon-->
+                                </span>
+                                <span class="menu-title">Request Barang</span>
+                            </a>
+                            <!--====== End Menu link ====== -->
+                        </div>
+                        <!--====== End Menu item Request Barang ====== -->
 
                         <!-- ====== Start Menu item Stock Out ====== -->
                         <div  class="menu-item menu-accordion">
                             <!-- ====== Start Menu link ====== -->
-                            <a class="menu-link" href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?=@$mn_pinjam?>" href="<?= base_url()?>admin/pinjam">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
@@ -1962,31 +2023,11 @@
                         </div>
                         <!--====== End Menu item Stock Out ====== -->
 
-                        <!-- ====== Start Menu item Request Barang ====== -->
-                        <div  class="menu-item menu-accordion">
-                            <!-- ====== Start Menu link ====== -->
-                            <a class="menu-link" href="<?= base_url()?>dashboard#">
-                                <span class="menu-icon">
-                                    <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
-                                    <span class="svg-icon svg-icon-2">
-                                        <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M22.9071 28.5687L12.2176 23.5053L19.9072 18.2793L12.4072 10.7793L2.40723 17.7793L6.22071 21.7517V36.5676C6.22071 37.3124 6.63456 37.9955 7.2947 38.3403L22.9071 46.4957V28.5687Z" fill="currentColor"/>
-                                            <path d="M25.9072 28.5688V46.4958L41.5198 38.3403C42.18 37.9955 42.5938 37.3124 42.5938 36.5676V21.7517L46.4073 17.7793L36.4073 10.7793L28.9073 18.2793L36.5969 23.5053L25.9072 28.5688Z" fill="currentColor"/>
-                                            <path d="M26.4072 2.2793H22.4072V8.2793H17.4072L24.4072 16.2793L31.4072 8.2793H26.4072V2.2793Z" fill="#324558"/>
-                                        </svg>
-                                    </span>
-                                    <!--end::Svg Icon-->
-                                </span>
-                                <span class="menu-title">Request Barang</span>
-                            </a>
-                            <!--====== End Menu link ====== -->
-                        </div>
-                        <!--====== End Menu item Request Barang ====== -->
 
                         <!-- ====== Start Menu Retur Customer ====== -->
                         <div class="menu-item -accordion">
                             <!-- ====== Start Menu link ====== -->
-                            <a class="menu-link " href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?=@$mn_retur?>" href="<?= base_url()?>staff/retur">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
@@ -2010,7 +2051,7 @@
                         <!-- ====== Start Menu  Pencarian ====== -->
                         <div class="menu-item menu-accordion">
                             <!-- ====== Start Menu link ====== -->
-                            <a class="menu-link " href="<?= base_url()?>dashboard#">
+                            <a class="menu-link <?=@$mn_cari?>" href="<?= base_url()?>staff/pencarian">
                                 <span class="menu-icon">
                                     <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                     <span class="svg-icon svg-icon-2">
@@ -2035,7 +2076,7 @@
                     <!-- ====== Start Menu item Logout ====== -->
                     <div class="menu-item menu-accordion">
                         <!-- ====== Start Menu link ====== -->
-                        <a class="menu-link " href="<?= base_url()?>dashboard#">
+                        <a class="menu-link " href="<?=base_url()?>Auth/logout">
                             <span class="menu-icon">
                                 <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                                 <span class="svg-icon svg-icon-2">

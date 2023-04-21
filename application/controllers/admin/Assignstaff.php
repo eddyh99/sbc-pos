@@ -15,27 +15,118 @@ class Assignstaff extends CI_Controller {
     }
     
     public function index() {
+		// $result	= $this->assignModel->ListStaff();
+		// print_r(json_encode($result));
+		// die;
+
         $data = array(
-            'title' => 'Data Assign Staff',
-            'content' => 'admin/assignstaff/index',
-            'extra' => 'admin/assignstaff/js/js_index',
-			'mn_master'	 => 'active',
-			'colmas'	 => 'collapse in',
-			'colset'	 => 'collapse',
-			'collap'	 => 'collapse',
-			'side6'		 => 'active',
+            'title' 		=> 'Data Assign Staff',
+            'content' 		=> 'admin/assignstaff/index',
+            'extra' 		=> 'admin/assignstaff/js/js_index',
+			'mn_master'	 	=> 'active',
+			'colmas'	 	=> 'collapse in',
+			'colset'	 	=> 'collapse',
+			'collap'	 	=> 'collapse',
+			'side6'			=> 'active',
+			'breadcrumb' 	=> '/ Master Data / Assign Staff '
 		);
 		$this->load->view('layout/wrapper', $data);
 	}
 	
 	public function Listdata(){
-		$result	= $this->assignModel->ListStaff();
+		// $result	= $this->assignModel->ListStaff();
+		
+		$result = array (
+			array(
+				"username" 		=> "yanyiik",
+				"nama"			=> "Ari Pramana",
+				"store"			=> "Hanaka Dalung",
+				"alamat"		=> "jln padang luwih",
+				"storeid"		=> "1",
+			),
+			array(
+				"username" 		=> "boy",
+				"nama"			=> "Boy William",
+				"store"			=> "Hanaka Mengwi",
+				"alamat"		=> "jln mengwi",
+				"storeid"		=> "2",
+			),
+			array(
+				"username" 		=> "reza_arap",
+				"nama"			=> "Reza Mahardika",
+				"store"			=> "Hanaka Singaraja",
+				"alamat"		=> "jln singaraja",
+				"storeid"		=> "3",
+			),
+		);
 		echo json_encode($result);
 	}
 
     public function tambah(){
-		$store	= $this->storeModel->Liststore();
-		$staff	= $this->penggunaModel->getNonAdmin();
+
+		// Hanya get data yang non ADMIN !!
+		// $staff	= $this->penggunaModel->getNonAdmin();
+		$staff = array (
+			array(
+				"username"		=> "yanyiik99",
+				"nama"			=> "yanyiik",
+				"role"			=> "Store Manager"
+			),
+			array(
+				"username"		=> "boy",
+				"nama"			=> "boy william",
+				"role"			=> "Office Manager"
+			),
+			array(
+				"username"		=> "reza12",
+				"nama"			=> "Reza Rahardian",
+				"role"			=> "Staff"
+			),
+			array(
+				"username"		=> "Ajes",
+				"nama"			=> "Dewa Ajess",
+				"role"			=> "Staff"
+			),
+		);
+
+		// $store	= $this->storeModel->Liststore();
+		$store = array(
+			array(
+				"storeid" 		=> "1",
+				"store" 		=> "hanaka dalung",
+				"alamat"		=> "jln padang luwing",
+				"keterangan"	=> "ini hanaka dalung",
+				"kontak"		=> "0909090909",
+				"status"		=> "0",
+				"userid"		=> "admin",
+				"lastupdate"	=> "2023-04-11 06:38:30"
+			),
+			array(
+				"storeid" 		=> "2",
+				"store" 		=> "hanaka mengwi",
+				"alamat"		=> "jln mengwi",
+				"keterangan"	=> "keterangan hanaka mengwi",
+				"kontak"		=> "1011111111",
+				"status"		=> "0",
+				"userid"		=> "admin",
+				"lastupdate"	=> "2023-04-11 06:38:30"
+			),
+			array(
+				"storeid" 		=> "3",
+				"store" 		=> "hanaka singaraja",
+				"alamat"		=> "jln singaraja",
+				"keterangan"	=> "keterangan hanaka singaraja",
+				"kontak"		=> "12313",
+				"status"		=> "0",
+				"userid"		=> "admin",
+				"lastupdate"	=> "2023-04-11 06:38:30"
+			),
+		);
+
+		// print_r(json_encode($staff));
+		// die;
+
+
         $data	= array(
             'title'		 => 'Tambah Data Staff',
             'content'	 => 'admin/assignstaff/tambah',
@@ -47,6 +138,7 @@ class Assignstaff extends CI_Controller {
 			'colset'	 => 'collapse',
 			'collap'	 => 'collapse',
 			'side6'		 => 'active',
+			'breadcrumb' => '/ Master Data / Assign Staff / Tambah Data Staff'
 		);
 		$this->load->view('layout/wrapper', $data);
     }
@@ -71,7 +163,19 @@ class Assignstaff extends CI_Controller {
             "userid"        => $userid
         );
 
-		$result		= $this->assignModel->insertData($data);
+		// print_r(json_encode($data));
+		// die;
+		
+		// Checking Success and Error 
+		// $result		= $this->assignModel->insertData($data);
+
+		// untuk sukses
+		// $result["code"]=0;
+
+		//untuk gagal
+		// $result["code"]=5011;
+		// $result["message"]="Data gagal di inputkan";
+
 
 		if ($result["code"]==0) {
 		    $this->session->set_flashdata('message', $this->message->success_msg());
@@ -99,7 +203,16 @@ class Assignstaff extends CI_Controller {
 			"storeid"	=> $storeid
 		);
 
-		$result		= $this->assignModel->hapusData($data,$where);
+		// Ceck Suskes & Gagal
+		// $result		= $this->assignModel->hapusData($data,$where);
+		
+		// untuk sukses
+		// $result["code"]=0;
+
+		//untuk gagal
+		// $result["code"]=5011;
+		// $result["message"]="Data gagal di Dihapus";
+
 
 		if ($result["code"]==0) {
 		    $this->session->set_flashdata('message', $this->message->delete_msg());

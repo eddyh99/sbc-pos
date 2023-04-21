@@ -16,6 +16,7 @@ class Pinjam extends CI_Controller {
 
 	public function index(){
 	    $store=$this->storeModel->liststore();
+		
         $data = array(
             'title'		=> 'Stok Out',
             'content'	=> 'admin/pinjam/index',
@@ -25,13 +26,43 @@ class Pinjam extends CI_Controller {
 			'colmas'	=> 'collapse',
 			'colset'	=> 'collapse',
 			'collap'	=> 'collapse',
+			'breadcrumb' => '/ Stock Out'
 		);
 		$this->load->view('layout/wrapper', $data);
 	}
 
 	public function Listdata(){
-		$store	    = $this->security->xss_clean($this->input->post('store'));
-		$result		= $this->pinjamModel->listnota($store);
+		// $store	    = $this->security->xss_clean($this->input->post('store'));
+		// $result		= $this->pinjamModel->listnota($store);
+		$result = array(
+			array(
+				"id"			=> "1",
+				"tanggal"		=> "2023-04-13",
+				"storeid"		=> "1",
+				"nama"			=> "Boy William",
+				"keterangan"	=> "Ini Keterangan",
+				"userid"		=> "admin",
+				"lastupdate"	=> "2023-04-13 18:28:24"
+			),
+			array(
+				"id"			=> "2",
+				"tanggal"		=> "2023-04-05",
+				"storeid"		=> "2",
+				"nama"			=> "Kevin Anggar ",
+				"keterangan"	=> "Ini Keterangan Kevin",
+				"userid"		=> "admin",
+				"lastupdate"	=> "2023-04-13 18:28:24"
+			),
+			array(
+				"id"			=> "3",
+				"tanggal"		=> "2023-04-03",
+				"storeid"		=> "1",
+				"nama"			=> "yanyiik",
+				"keterangan"	=> "Ini Keterangan yanyiik",
+				"userid"		=> "admin",
+				"lastupdate"	=> "2023-04-13 18:28:24"
+			),
+		);
 		echo json_encode($result);
 	}
     
@@ -44,7 +75,32 @@ class Pinjam extends CI_Controller {
     }
     
 	public function detailpinjam($key){
-		$produk     = $this->produkModel->listproduk();
+		// $produk     = $this->produkModel->listproduk();
+		// print_r(json_encode($produk));
+		// die;
+		$produk = array(
+			array(
+				"barcode"		=> "0000000000000",
+				"namaproduk"	=> "Gelang Sakti",
+				"namabrand"		=> "Gelang karet",
+				"namakategori"	=> "Gelang",
+				"status"		=> "1",
+				"userid"		=> "admin",
+				"lastupdate"	=> "2023-04-13 18:28:24"
+			),
+			array(
+				"barcode"		=> "0000000000000",
+				"namaproduk"	=> "Gelang Sakti",
+				"namabrand"		=> "Gelang karet",
+				"namakategori"	=> "Gelang",
+				"status"		=> "0",
+				"userid"		=> "admin",
+				"lastupdate"	=> "2023-04-13 18:28:24"
+			),
+		);
+		// print_r(json_encode($produk));
+		// die;
+
         $data = array(
             'title'		=> 'Detail Stok Out',
             'content'	=> 'admin/pinjam/detail',
@@ -55,13 +111,40 @@ class Pinjam extends CI_Controller {
 			'collap'	=> 'collapse',
 			'produk'    => $produk,
 			'key'       => $key,
+			'breadcrumb' => '/ Stok Out / Detail'
 		);
 		$this->load->view('layout/wrapper', $data);
 	}
 	
 	public function listpinjam(){
-		$key	 = $this->security->xss_clean($this->input->post('key'));
-	    $result  = $this->pinjamModel->getDetail($key);
+		// $key	 = $this->security->xss_clean($this->input->post('key'));
+	    // $result  = $this->pinjamModel->getDetail($key);
+		$result = array(
+			array(
+				"barcode"		=> "0000000000000",
+				"namaproduk"	=> "Baju",
+				"namabrand"		=> "Gelang karet",
+				"namakategori"	=> "Gelang",
+				"status"		=> "1",
+				"userid"		=> "admin",
+				"lastupdate"	=> "2023-04-13 18:28:24",
+				"size"			=> "M", 
+				"jumlah"		=> "100",
+				"key"			=> "key"
+			),
+			array(
+				"barcode"		=> "0000000000000",
+				"namaproduk"	=> "Gelang Sakti",
+				"namabrand"		=> "Gelang karet",
+				"namakategori"	=> "Gelang",
+				"status"		=> "0",
+				"userid"		=> "admin",
+				"lastupdate"	=> "2023-04-13 18:28:24",
+				"size"			=> "L", 
+				"jumlah"		=> "200",
+				"key"			=> "key"
+			),
+		);
 	    echo json_encode($result);
 	}
 	

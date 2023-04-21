@@ -1,4 +1,4 @@
-											
+							<?php if (@$_SESSION["logged_status"]["is_login"]){?>
 							<!-- ====== Start Footer Page ====== -->
 							<div id="kt_app_footer" class="app-footer">
 									<!-- ====== STart Footer container ====== -->
@@ -28,6 +28,7 @@
 									</div>
 								<!--====== End Footer container ====== -->
 							</div>
+							<?php }?>
 							<!--====== End Footer Page ====== -->
 						</div>
 						<!--====== End Main Content ====== -->
@@ -61,12 +62,7 @@
 		<script src="<?= base_url()?>assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
 		<script src="<?= base_url()?>assets/plugins/custom/datatables/datatables.bundle.js"></script>
 		<!--end::Vendors Javascript-->
-		<!--begin::Custom Javascript(used for this page only)-->
-		<script src="<?= base_url()?>assets/js/widgets.bundle.js"></script>
-		<script src="<?= base_url()?>assets/js/custom/apps/chat/chat.js"></script>
-		<script src="<?= base_url()?>assets/js/custom/utilities/modals/upgrade-plan.js"></script>
-		<script src="<?= base_url()?>assets/js/custom/utilities/modals/create-campaign.js"></script>
-		<script src="<?= base_url()?>assets/js/custom/utilities/modals/users-search.js"></script>
+
         <?php 
             if (isset($extra)){
                 $this->load->view($extra);

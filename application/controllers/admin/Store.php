@@ -31,7 +31,6 @@ class Store extends CI_Controller {
 	
 	public function Listdata(){
 		// $result=$this->storeModel->liststore();
-
 		$result = array (
 			array(
 				"store_id" 		=> "1",
@@ -85,7 +84,6 @@ class Store extends CI_Controller {
 			),
 		);
 		echo json_encode($result);
-		die;
 	}
 
     public function tambah(){
@@ -101,6 +99,8 @@ class Store extends CI_Controller {
 			'colset'	 => 'collapse in',
 			'collap'	 => 'collapse',
 			'side2'		 => 'active',
+			'breadcrumb' => '/ Setup / Store / Tambah Data'
+			
 		);
 		$this->load->view('layout/wrapper', $data);
     }
@@ -130,7 +130,20 @@ class Store extends CI_Controller {
             "keterangan"    => $keterangan,
             "userid"        => $userid
         );
-		$result		= $this->storeModel->insertData($data);
+
+		// print_r(json_encode($data));
+		// die;
+
+		// Checking Success and Error AddData
+		// $result		= $this->storeModel->insertData($data);
+
+		// untuk sukses
+		// $result["code"]=0;
+
+		//untuk gagal
+		// $result["code"]=5011;
+		// $result["message"]="Data gagal di inputkan";
+
 
 		if ($result["code"]==0) {
 		    $this->session->set_flashdata('message', $this->message->success_msg());
@@ -149,7 +162,21 @@ class Store extends CI_Controller {
         }
         
 		$storeid = base64_decode($this->security->xss_clean($storeid));
-		$result = $this->storeModel->getStore($storeid);
+		
+		// update Store karena single data form
+		// $result = $this->storeModel->getStore($storeid);
+		$result = array (
+			"storeid"		=> '5',
+			"store"         => "Hanaka Karangasem",
+            "alamat"        => "Karangasem",
+            "kontak"        => "088812221222",
+            "keterangan"    => "ini keterangan hanaka Karangasem",
+            "userid"        => "admin"
+		);
+
+		// print_r($result);
+		// die;
+
 
         $data = array(
             'title'      => 'Ubah Data Store',
@@ -160,6 +187,7 @@ class Store extends CI_Controller {
 			'colset'	 => 'collapse in',
 			'collap'	 => 'collapse',
 			'side2'		 => 'active',
+			'breadcrumb' => '/ Setup / Store / Ubah Data'
 		);
 		$this->load->view('layout/wrapper', $data);
     }
@@ -184,6 +212,7 @@ class Store extends CI_Controller {
         $userid		= $_SESSION["logged_status"]["username"];
 
         $data		= array(
+			"storeid"		=> $storeid,
             "store"         => $store,
             "alamat"        => $alamat,
             "kontak"        => $kontak,
@@ -191,7 +220,23 @@ class Store extends CI_Controller {
             "userid"        => $userid
         );
 
-		$result		= $this->storeModel->updateData($data,$storeid);
+		// print_r($data);
+		// die;
+		
+		// print_r(json_encode($data));
+		// die;
+		
+		// Checking Success and Error 
+		// $result		= $this->storeModel->updateData($data,$storeid);
+
+		// untuk sukses
+		// $result["code"]=0;
+
+		//untuk gagal
+		// $result["code"]=5011;
+		// $result["message"]="Data gagal di inputkan";
+
+
 
 		if ($result["code"]==0) {
 		    $this->session->set_flashdata('message', $this->message->success_msg());
@@ -213,7 +258,14 @@ class Store extends CI_Controller {
             "userid"  => $userid
         );
 
-		$result		= $this->storeModel->hapusData($data,$storeid);
+		// $result		= $this->storeModel->hapusData($data,$storeid);
+
+		// untuk sukses
+		// $result["code"]=0;
+
+		//untuk gagal
+		// $result["code"]=5011;
+		// $result["message"]="Data gagal di Dihapus";
 
 		if ($result["code"]==0) {
 		    $this->session->set_flashdata('message', $this->message->delete_msg());

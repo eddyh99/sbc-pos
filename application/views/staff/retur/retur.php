@@ -1,112 +1,60 @@
-<div class="content">
-    <div class="container-fluid">
-<!-- Start -->
-        <div class="row mb-3">
-            <div class="card">
-                <?php if (isset($_SESSION["message"])){?>
-                <div class="alert alert-success"><?=$_SESSION["message"]?></div>
-                <?php } ?>
-                <input type="hidden" id="key" value="<?=$key?>">
-                <input type="hidden" id="memberid" value="<?=$memberid?>">
-                <div class="card-content">
-                    <table id="table_retur" class="table table-striped nowrap" width="100%">
-                    	    <thead>
-                    		<tr>
-                    		    <th></th>
-                    			<th>Barcode</th>
-                    			<th>Produk</th>
-                    			<th>Brand</th>
-                    			<th>Size</th>
-                    			<th>Jumlah</th>
-                    			<th>Harga</th>
-                    			<th>Total</th>
-                    		</tr>
-                    	    </thead>
-                    	    <tbody>
-                    	    </tbody>
-                    	</table>
-                </div>
-                <label class="col-form-label col-sm-1">Total</label>
-                <input type="hidden" id="ttlretur" value="0">
-                <div class="col-sm-3"><input type="text" id="total" class="form-control mb-3" value="0" readonly></div>
-            </div>
-        </div>
-
-     <!--   <div class="row">-->
-     <!--       <div class="card">-->
-     <!--           <div class="card-content">-->
-					<!--<div class="col-sm-4">-->
-					<!--	<label class="col-form-label">Barcode</label>-->
-					<!--	<input type="text" id="barcode" name="barcode" class="form-control input-lg" maxlength="13" required onkeypress="return isNumber(event)">-->
-					<!--</div>-->
-					<!--<div class="col-sm-3">-->
-					<!--	<div class="col-sm-12">-->
-					<!--		<label class="col-form-label">Nama Produk</label>-->
-					<!--	</div>-->
-					<!--	<div class="col-sm-12">-->
-     <!--       				<select id="namaproduk" name="namaproduk" class="form-control">-->
-     <!--                           <option value="" disabled selected>Pilih Produk</option>-->
-     <!--       				    <?php foreach($produk as $dt){?>-->
-     <!--                               <option value="<?=$dt["barcode"]?>"><?=$dt["namaproduk"]?></option>-->
-     <!--       				    <?php }?>-->
-     <!--       				</select>-->
-     <!--       			</div>-->
-					<!--</div>-->
-					<!--<div class="col-sm-1">-->
-					<!--	<button class="hanaka-button" id="btnpayment">Simpan</button>-->
-					<!--</div>-->
-     <!--           </div>-->
-     <!--       </div>-->
-     <!--   </div>-->
-
-     <!--   <div class="row">-->
-     <!--       <div class="card">-->
-     <!--           <div class="card-content">-->
-     <!--           	<table id="table_data" class="table table-striped nowrap" width="100%">-->
-     <!--           	    <thead>-->
-     <!--           		<tr>-->
-     <!--           			<th width="150px">Barcode</th>-->
-     <!--           			<th width="200px">Produk</th>-->
-     <!--           			<th width="100px">Size</th>-->
-     <!--           			<th width="100px">Qty</th>-->
-     <!--           			<th width="150px">Harga</th>-->
-     <!--           			<th>Diskon</th>-->
-     <!--           			<th>Diskon (%)</th>-->
-     <!--           			<th>Total</th>-->
-     <!--           			<th>Aksi</th>-->
-     <!--           		</tr>-->
-     <!--           	    </thead>-->
-     <!--           	    <tbody>-->
-     <!--           	    </tbody>-->
-					<!--	<tfoot>-->
-					<!--	<tr>-->
-					<!--		<th></th>-->
-					<!--		<th></th>-->
-					<!--		<th></th>-->
-					<!--		<th></th>-->
-					<!--		<th></th>-->
-					<!--		<th></th>-->
-					<!--		<th style="text-align:right">Total</th>-->
-					<!--		<th></th>-->
-					<!--		<th></th>-->
-					<!--	</tr>-->
-					<!--	</tfoot>-->
-     <!--           	</table>-->
-     <!--           </div>-->
-     <!--       </div>-->
-     <!--   </div>-->
 
 
-<!-- End Container -->
-    </div>
+<!-- ======= Start Content wrapper ====== -->
+<div class="d-flex flex-column flex-column-fluid">
+
+	<!-- ====== Start Content ====== -->
+	<div id="kt_app_content" class="app-content flex-column-fluid">
+		<!-- ======= Start Content container ======== -->
+		<div id="kt_app_content_container" class="app-container container-fluid">
+			
+			<!-- ======= Start Row Content Canva JS ====== -->
+			<div class="row mb-3">
+				<div class="card my-10">
+					<?php if (isset($_SESSION["message"])){?>
+					<div class="alert alert-success"><?=$_SESSION["message"]?></div>
+					<?php } ?>
+					<input type="hidden" id="key" value="<?=$key?>">
+					<input type="hidden" id="memberid" value="<?=$memberid?>">
+					<div class="card-content px-10 my-10">
+						<table id="table_retur" class="table table-striped nowrap" width="100%">
+								<thead>
+								<tr>
+									<th></th>
+									<th>Barcode</th>
+									<th>Produk</th>
+									<th>Brand</th>
+									<th>Size</th>
+									<th>Jumlah</th>
+									<th>Harga</th>
+									<th>Total</th>
+								</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+					</div>
+					<label class="col-form-label col-sm-1 p-4">Total</label>
+					<input type="hidden" id="ttlretur" value="0">
+					<div class="col-sm-3 p-4"><input type="text" id="total" class="form-control mb-3" value="0" readonly></div>
+				</div>
+			</div>
+			<!-- ======= End Row Content Canva JS ====== -->
+
+		</div>
+		<!-- ====== End Content container ====== -->
+	</div>
+	<!--====== End Content ====== -->
 </div>
+<!--======= End Content wrapper ====== -->
+
 
 <!-- Input size -->
 <div class="modal fade" id="modalsize">
 	<div class="modal-dialog modal-sm">
 		<div class="modal-content">
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 				<h4 class="modal-title">Size & Discount</h4>
@@ -150,7 +98,7 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Batal</button>
+				<button type="button" class="btn btn-default pull-left" data-bs-dismiss="modal">Batal</button>
 				<button type="button" class="btn btn-primary" id="simpan">Simpan</button>
 			</div>
 		</div>
@@ -162,7 +110,7 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 				<h4 class="modal-title">Payment Page</h4>
@@ -216,7 +164,7 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Batal</button>
+				<button type="button" class="btn btn-default pull-left" data-bs-dismiss="modal">Batal</button>
 				<button type="button" class="btn btn-primary" id="simpaninvoice">Simpan</button>
 			</div>
 		</div>

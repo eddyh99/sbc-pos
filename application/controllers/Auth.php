@@ -14,6 +14,7 @@ class Auth extends CI_Controller {
             'title'     => 'Login',
             'is_login'  => false,
             'content'   => 'login/index',
+			'extra'		=> 'login/js/js_index',
 		);
 		$this->load->view('layout/wrapper', $data);
 	}
@@ -39,8 +40,8 @@ class Auth extends CI_Controller {
 		if ($result!="failed"){
 			$session_data = array(
 				'username'  => $uname,
-				'nama'      => "admin",
-				'role'      => "Owner",
+				'nama'      => "STAFF",
+				'role'      => "Staff",
 				'is_login'  => true
 			);
 			$this->session->set_userdata('logged_status', $session_data);

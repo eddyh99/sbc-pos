@@ -19,6 +19,7 @@ class Dashboard extends CI_Controller {
 			'extracss'	=> 'staff/dashboard/css/dash_css',
 			'mn_dash'    => 'active',
 			'collap'	 => 'collapse',
+            'breadcrumb' => '/ Dashboard'
 		);
 		$this->load->view('layout/wrapper', $data);
 	}

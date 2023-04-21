@@ -22,8 +22,8 @@ $(function(){
 				"mData": "username",
 				"mRender": function (data, type, full, meta){
 				    if (full.role!="Admin"){
-				        button='<a href="<?=base_url()?>admin/pengguna/ubah/'+encodeURI(btoa(full.username))+'" class="btn btn-simple btn-success btn-icon remove rounded-circle mx-1"><i class="material-icons">update</i></a>';
-				        button=button+'<a href="<?=base_url()?>admin/pengguna/DelData/'+encodeURI(btoa(full.username))+'" class="btn btn-simple btn-danger btn-icon remove rounded-circle mx-1"><i class="material-icons">close</i></a>';
+				        button='<a href="<?=base_url()?>admin/pengguna/ubah/'+encodeURI(btoa(full.username))+'" class="btn btn-simple btn-success btn-icon remove rounded-circle mx-1"><i class="material-icons fs-3">update</i></a>';
+				        button=button+'<a href="<?=base_url()?>admin/pengguna/DelData/'+encodeURI(btoa(full.username))+'" class="btn btn-simple btn-danger btn-icon remove rounded-circle mx-1"><i class="material-icons fs-3">close</i></a>';
     			        return button;
 				    }else{
 				        button='<a href="<?=base_url()?>admin/pengguna/ubah/'+encodeURI(btoa(full.username))+'" class="btn btn-simple btn-danger btn-icon remove rounded-circle mx-1"><i class="material-icons">update</i></a>';

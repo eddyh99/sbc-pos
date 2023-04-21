@@ -15,11 +15,11 @@ $(function(){
 		    "aoColumnDefs": [{	
 				"aTargets": [5],
 				"mRender": function (data, type, full, meta){
-				    var button = "<a href='#'  onclick=\"window.open('<?=base_url()?>staff/cashier/cetaknota/"+full.id+"')\" class='btn btn-sm'>Reprint</a>";
-				    var button = button+"<a href='<?=base_url()?>staff/retur/detailretur/"+full.id+"/"+full.member_id+"' class='btn btn-sm'>Retur</a>";
+				    var button = "<a href='#'  onclick=\"window.open('<?=base_url()?>staff/cashier/cetaknota/"+full.id+"')\" class='btn btn-sm btn-primary mx-1'>Reprint</a>";
+				    var button = button+"<a href='<?=base_url()?>staff/retur/detailretur/"+full.id+"/"+full.member_id+"' class='btn btn-sm btn-warning mx-1'>Retur</a>";
 				    var batal="";
                     <?php if ($_SESSION["logged_status"]["role"]!="Staff"){?>
-				        batal = "<a href='<?=base_url()?>staff/retur/batalnota/"+full.id+"' class='btn btn-sm'>Batal</a>"
+				        batal = "<a href='<?=base_url()?>staff/retur/batalnota/"+full.id+"' class='btn btn-sm btn-danger mx-1'>Batal</a>"
 				    <?php }?>
 				    var order=moment(full.tanggal).format("YYYY-MM-DD");
 				    var maxtgl = moment().subtract(4, "days").format("YYYY-MM-DD");

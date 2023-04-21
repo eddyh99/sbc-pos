@@ -27,6 +27,7 @@ class Produk extends CI_Controller {
 			'colset'	 => 'collapse',
 			'collap'	 => 'collapse',
 			'side7'		 => 'active',
+			'breadcrumb' => '/ Master Data / Produk '
 		);
 		$this->load->view('layout/wrapper', $data);
 	}
@@ -34,39 +35,76 @@ class Produk extends CI_Controller {
 	
 
 	public function Listdata(){
-/*		$result=$this->produkModel->listproduk();
-		echo json_encode($result);*/
-        $columns	= array( 
-                0	=> 'barcode', 
-                1	=> 'namaproduk',
-                2	=> 'namabrand',
-                3	=> 'namakategori',
-                4	=> 'harga',
-            );
-		$start		= $this->input->post('start');
-		$limit		= $this->input->post('length');
+		// $result=$this->produkModel->listproduk();
+		// echo json_encode($result);
+        // $columns	= array( 
+        //         0	=> 'barcode', 
+        //         1	=> 'namaproduk',
+        //         2	=> 'namabrand',
+        //         3	=> 'namakategori',
+        //         4	=> 'harga',
+        //     );
+		// $start		= $this->input->post('start');
+		// $limit		= $this->input->post('length');
 		
-        $order		= $columns[$this->input->post('order')[0]['column']];
-        $dir		= $this->input->post('order')[0]['dir'];
+        // $order		= $columns[$this->input->post('order')[0]['column']];
+        // $dir		= $this->input->post('order')[0]['dir'];
   
-        $totalData	= $this->produkModel->allposts_count();
-        $totalFiltered = $totalData; 
+        // $totalData	= $this->produkModel->allposts_count();
+        // $totalFiltered = $totalData; 
             
-        if(empty($this->input->post('search')['value']))
-        {            
-            $result = $this->produkModel->allposts($limit,$start,$order,$dir);
-        }
-        else {
-            $search = $this->input->post('search')['value']; 
-            $result = $this->produkModel->posts_search($limit,$start,$search,$order,$dir);
-            $totalFiltered = $this->produkModel->posts_search_count($search);
-        }
+        // if(empty($this->input->post('search')['value']))
+        // {            
+        //     $result = $this->produkModel->allposts($limit,$start,$order,$dir);
+        // }
+        // else {
+        //     $search = $this->input->post('search')['value']; 
+        //     $result = $this->produkModel->posts_search($limit,$start,$search,$order,$dir);
+        //     $totalFiltered = $this->produkModel->posts_search_count($search);
+        // }
 		
-        $data		= array(
-                "recordsTotal"      => $totalData,
-                "recordsFiltered"   => $totalFiltered,
-                "produk"			=> $result,
-            );
+        // $data	=  array(
+        //         "recordsTotal"      => $totalData,
+        //         "recordsFiltered"   => $totalFiltered,
+        //         "produk"			=> $result,
+        //     );
+
+		$data = array(
+			array(
+				"barcode"		=> '1234567901231',
+				"diskon"		=> '10',
+				"harga"			=> '1000000',
+				"lastupdate"	=> '2023-04-13 22:28:34',
+				"namabrand"		=> 'Baju',
+				"namakategori"	=> 'Baju',
+				"namaproduk"	=> 'Baju Polo',
+				"status"		=> '0',
+				"userid"		=> "admin"
+			),
+			array(
+				"barcode"		=> '00000000000000',
+				"diskon"		=> '99',
+				"harga"			=> '91000',
+				"lastupdate"	=> '2023-04-13 22:28:34',
+				"namabrand"		=> 'Gelang',
+				"namakategori"	=> 'Gelang Karet',
+				"namaproduk"	=> 'Gelang Sakti',
+				"status"		=> '0',
+				"userid"		=> "admin"
+			),
+			array(
+				"barcode"		=> '22222222222222',
+				"diskon"		=> '13',
+				"harga"			=> '12000',
+				"lastupdate"	=> '2023-04-13 22:28:34',
+				"namabrand"		=> 'hanaka',
+				"namakategori"	=> 'celana',
+				"namaproduk"	=> 'celana',
+				"status"		=> '0',
+				"userid"		=> "admin"
+			),
+		);
+
 	    echo json_encode($data);
 	}
 
@@ -83,6 +121,7 @@ class Produk extends CI_Controller {
 			'colset'	 => 'collapse',
 			'collap'	 => 'collapse',
 			'side7'		 => 'active',
+			'breadcrumb' => '/ Master Data / Produk / Tambah Data'
 		);
 		$this->load->view('layout/wrapper', $data);
     }
@@ -114,7 +153,16 @@ class Produk extends CI_Controller {
             array_push($data,$temp);
         }
         
-		$result		= $this->produkModel->insertbatchData($data);
+		// Checking Success and Error 
+		// $result		= $this->produkModel->insertbatchData($data);
+
+		// untuk sukses
+		// $result["code"]=0;
+
+		//untuk gagal
+		// $result["code"]=5011;
+		// $result["message"]="Data gagal di inputkan";
+
 		if ($result["code"]==0) {
 		    $this->session->set_flashdata('message', $this->message->success_msg());
 		    redirect("/admin/produk");
@@ -157,7 +205,20 @@ class Produk extends CI_Controller {
             "diskon"		=> $diskon,
             "userid"        => $userid
         );
-		$result		= $this->produkModel->insertData($data);
+
+		// print_r(json_encode($data));
+		// die;
+		
+		// Checking Success and Error 
+		// $result		= $this->produkModel->insertData($data);
+		
+
+		// untuk sukses
+		// $result["code"]=0;
+
+		//untuk gagal
+		// $result["code"]=5011;
+		// $result["message"]="Data gagal di inputkan";
 
 		if ($result["code"]==0) {
 		    $this->session->set_flashdata('message', $this->message->success_msg());
@@ -172,10 +233,59 @@ class Produk extends CI_Controller {
 
 	public function ubah($barcode){
 		$barcode	= base64_decode($this->security->xss_clean($barcode));
-		$result		= $this->produkModel->getProduk($barcode);
 
-		$brand		= $this->brandModel->Listbrand();
-		$kategori	= $this->kategoriModel->Listkategori();
+
+		$result = array (
+			"barcode" => "1234567901231",
+			"namaproduk" => "Baju Polo",
+			"namabrand" => "Baju",
+			"namakategori" => "test",
+			"status" => "0",
+			"userid" => "admin",
+			"lastupdate" => "2023-04-13 22:28:34",
+			"harga" => "1000000",
+			"diskon" => "10",
+		);
+		// print_r(json_encode($result));
+		// die;
+
+		// $result		= $this->produkModel->getProduk($barcode);
+
+
+		$brand = array(
+			array(
+				"namabrand"		=> "69slime",
+				"keterangan"	=> "69slime"
+			),
+			array(
+				"namabrand"		=> "Mayhem",
+				"keterangan"	=> "mayhem"
+			),
+			array(
+				"namabrand"		=> "Sandal",
+				"keterangan"	=> "sandal"
+			),
+		);
+		// $brand		= $this->brandModel->Listbrand();
+		// print_r(json_encode($brand));
+		// die;
+
+		
+		$kategori = array(
+			array(
+    			"namakategori"	=> "Baju"
+			),
+			array(
+				"namakategori"	=> "Gelang"
+			),
+			array(
+				"namakategori"	=> "Sandal"
+			),
+		);
+		// $kategori	= $this->kategoriModel->Listkategori();
+		// print_r(json_encode($kategori));
+		// die;
+
         $data		= array(
             'title'		 => 'Ubah Data Produk',
             'content'	 => 'admin/produk/ubah',
@@ -188,6 +298,7 @@ class Produk extends CI_Controller {
 			'colset'	 => 'collapse',
 			'collap'	 => 'collapse',
 			'side7'		 => 'active',
+			'breadcrumb' => '/ Master Data / Produk / Ubah Data'
 		);
 		$this->load->view('layout/wrapper', $data);
     }
@@ -223,7 +334,17 @@ class Produk extends CI_Controller {
             "userid"        => $userid
         );
 
-		$result		= $this->produkModel->setData($data,$barcode);
+		// Checking Success and Error 
+		// $result		= $this->produkModel->setData($data,$barcode);
+
+
+		// untuk sukses
+		// $result["code"]=0;
+
+		//untuk gagal
+		// $result["code"]=5011;
+		// $result["message"]="Data gagal di inputkan";
+
 
 		if ($result["code"]==0) {
 		    $this->session->set_flashdata('message', $this->message->success_msg());
@@ -231,7 +352,7 @@ class Produk extends CI_Controller {
             return;
 		}else{
 		    $this->session->set_flashdata('message', $this->message->error_msg($result["message"]));
-		    redirect("/admin/produk/ubah/".base64_encode($oldbrand));
+		    redirect("/admin/produk/ubah/".base64_encode($barcode));
             return;
 		}
 	}

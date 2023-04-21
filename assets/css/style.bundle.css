@@ -2309,8 +2309,8 @@ progress {
 }
 
 .col-form-label {
-  padding-top: calc(0.775rem + 1px);
-  padding-bottom: calc(0.775rem + 1px);
+  padding-top: calc(0.20rem + 1px);
+  padding-bottom: calc(0.20rem + 1px);
   margin-bottom: 0;
   font-size: inherit;
   font-weight: 500;
@@ -34003,7 +34003,8 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 }
 
 .btn.btn-primary {
-  color: var(--bs-primary-inverse);
+  /* color: var(--bs-primary-inverse); */
+  color: white;
   border-color: var(--bs-primary);
   background-color: var(--bs-primary);
 }
@@ -48397,12 +48398,12 @@ body,
   --bs-app-sidebar-light-scrollbar-color: #F4F4F4;
   --bs-app-sidebar-light-scrollbar-color-hover: #F4F4F4;
   --bs-app-sidebar-light-menu-heading-color: #A1A5B7;
-  --bs-app-sidebar-light-menu-link-bg-color-active: #F4F6FA;
-  --bs-app-sidebar-light-header-menu-link-bg-color-active: #EAEEF2;
-  --bs-app-sidebar-dark-bg-color: #202B46;
-  --bs-app-sidebar-dark-separator-color: #33446C;
-  --bs-app-sidebar-dark-menu-heading-color: #646477;
-  --bs-app-sidebar-dark-toggle-btn-bg-color: #323C55;
+  /* --bs-app-sidebar-light-menu-link-bg-color-active: #F4F6FA; */
+  /* --bs-app-sidebar-light-header-menu-link-bg-color-active: #EAEEF2; */
+  /* --bs-app-sidebar-dark-bg-color: #202B46; */
+  /* --bs-app-sidebar-dark-separator-color: #33446C; */
+  /* --bs-app-sidebar-dark-menu-heading-color: #646477; */
+  /* --bs-app-sidebar-dark-toggle-btn-bg-color: #323C55; */
   --bs-app-layout-builder-toggle-bg-color: #323C55;
 }
 
@@ -48551,7 +48552,7 @@ body,
   border-bottom: 1px dashed var(--bs-app-sidebar-dark-separator-color);
 }
 [data-kt-app-layout=dark-sidebar] .app-sidebar .app-sidebar-toggle {
-  background-color: var(--bs-app-sidebar-dark-toggle-btn-bg-color);
+  background-color: #323C55;
 }
 [data-kt-app-layout=dark-sidebar] .app-sidebar .app-sidebar-toggle i,
 [data-kt-app-layout=dark-sidebar] .app-sidebar .app-sidebar-toggle .svg-icon {
@@ -48590,7 +48591,7 @@ body,
   background-color: rgba(63, 66, 84, 0.35) !important;
 }
 [data-kt-app-layout=dark-sidebar] .app-sidebar .menu .menu-item .menu-heading {
-  color: var(--bs-app-sidebar-dark-menu-heading-color) !important;
+  color: #646477 !important;
 }
 [data-kt-app-layout=dark-sidebar] .app-sidebar .menu .menu-item .menu-link {
   color: #8D98AF;

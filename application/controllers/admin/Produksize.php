@@ -20,6 +20,10 @@ class Produksize extends CI_Controller {
     
     public function index() {
 
+		// $result		= $this->produksizeModel->ListSize();
+		// print_r(json_encode($result));
+		// die;
+
         $data		= array(
             'title'		 => 'Data Produk - Size',
             'content'	 => 'admin/produksize/index',
@@ -29,12 +33,33 @@ class Produksize extends CI_Controller {
 			'colset'	 => 'collapse',
 			'collap'	 => 'collapse',
 			'side8'		 => 'active',
+			'breadcrumb' => '/ Master Data / Produk Size '
 		);
 		$this->load->view('layout/wrapper', $data);
 	}
 	
 	public function Listdata(){
-		$result		= $this->produksizeModel->ListSize();
+		// $result		= $this->produksizeModel->ListSize();
+		$result = array(
+			array(
+				"barcode" 		=> "1234567901231",
+				"size"			=> "M",
+				"namaproduk"	=> "Baju Polo",
+				"namabrand"		=> "Baju"
+			),
+			array(
+				"barcode" 		=> "0000000000000",
+				"size"			=> "Z",
+				"namaproduk"	=> "Celana",
+				"namabrand"		=> "celana"
+			),
+			array(
+				"barcode" 		=> "12121212221212",
+				"size"			=> "XXL",
+				"namaproduk"	=> "Tas",
+				"namabrand"		=> "Tas"
+			),
+		);
 		echo json_encode($result);
 	}
 
@@ -45,8 +70,52 @@ class Produksize extends CI_Controller {
     }
     
     public function tambah(){
-		$size		= $this->sizeModel->Listsize();
-		$produk     = $this->produkModel->listproduk();
+
+		$size = array(
+			array(
+				"nama"	=> "L",
+			),
+			array(
+				"nama"	=> "XXXXL",
+			)
+		);
+		// print_r(json_encode($size));
+		// die;
+		// $size		= $this->sizeModel->Listsize();
+		
+		$produk = array(
+			array(
+				"barcode"		=> '1234567901231',
+				"namaproduk"	=> 'Baju Polo',
+				"namabrand"		=> 'Baju',
+				"namakategori"	=> 'Baju',
+				"status"		=> '0',
+				"userid"		=> "admin",
+				"lastupdate"	=> '2023-04-13 22:28:34',
+			),
+			array(
+				"barcode"		=> '00000000000000',
+				"namaproduk"	=> 'Gelang Sakti',
+				"namabrand"		=> 'Gelang',
+				"namakategori"	=> 'Gelang Karet',
+				"status"		=> '0',
+				"userid"		=> "admin",
+				"lastupdate"	=> '2023-04-13 22:28:34',
+			),
+			array(
+				"barcode"		=> '22222222222222',
+				"namaproduk"	=> 'celana',
+				"namabrand"		=> 'celana',
+				"namakategori"	=> 'celana',
+				"status"		=> '0',
+				"userid"		=> "admin",
+				"lastupdate"	=> '2023-04-13 22:28:34',
+			),
+		);
+		// $produk     = $this->produkModel->listproduk();
+		// print_r(json_encode($produk));
+		// die;
+
         $data		= array(
             'title'      => 'Tambah Data Produk - Size',
             'content'    => 'admin/produksize/tambah',
@@ -58,6 +127,7 @@ class Produksize extends CI_Controller {
 			'colset'	 => 'collapse',
 			'collap'	 => 'collapse',
 			'side8'		 => 'active',
+			'breadcrumb' => '/ Master Data / Produk Size / Tambah Data '
 		);
 		$this->load->view('layout/wrapper', $data);
     }
@@ -121,7 +191,20 @@ class Produksize extends CI_Controller {
             "size"			=> $size,
             "userid"        => $userid
         );
-		$result		= $this->produksizeModel->insertData($data);
+		// print_r(json_encode($data));
+		// die;
+		
+		// Checking Success and Error 
+		// $result		= $this->produksizeModel->insertData($data);
+		
+
+		// untuk sukses
+		// $result["code"]=0;
+
+		//untuk gagal
+		// $result["code"]=5011;
+		// $result["message"]="Data gagal di inputkan";
+
 
 		if ($result["code"]==0) {
 		    $this->session->set_flashdata('message', $this->message->success_msg());
@@ -134,7 +217,8 @@ class Produksize extends CI_Controller {
 		}
 	}
 	
-	public function DelData($barcode,$size){
+	public function DelData($barcode,$size)
+	{
         $userid		= $_SESSION["logged_status"]["username"];
 		$barcode	= base64_decode($this->security->xss_clean($barcode));
 		$size		= base64_decode($this->security->xss_clean($size));
@@ -149,7 +233,18 @@ class Produksize extends CI_Controller {
 			"size"		=> $size
 		);
 
-		$result		= $this->produksizeModel->hapusData($data,$where);
+		
+		// Checking Success and Error 
+		// $result		= $this->produksizeModel->hapusData($data,$where);
+		
+
+		// untuk sukses
+		// $result["code"]=0;
+
+		//untuk gagal
+		// $result["code"]=5011;
+		// $result["message"]="Data gagal di dihapus";
+
 
 		if ($result["code"]==0) {
 		    $this->session->set_flashdata('message', $this->message->delete_msg());

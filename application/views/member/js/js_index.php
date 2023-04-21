@@ -19,15 +19,17 @@ $(function(){
 					"url": "<?=base_url()?>member/Listdata",
 					"type": "POST",
 					"dataSrc":function (data){
-							return data["member"];							
+							console.log(data);
+							return data;							
 						  }
 			},
 		    "aoColumnDefs": [{	
+				"defaultContent": "-",
 				"aTargets": [4],
 				"mData": "",
 				"mRender": function (data, type, full, meta){
-				        button='<a href="<?=base_url()?>member/ubah/'+encodeURI(btoa(full.member_id))+'" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">update</i></a>';
-				        button=button+'<a href="<?=base_url()?>member/DelData/'+encodeURI(btoa(full.member_id))+'" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">close</i></a>';
+				        button='<a href="<?=base_url()?>member/ubah/'+encodeURI(btoa(full.member_id))+'" class="btn btn-simple btn-success btn-icon remove rounded-circle mx-1"><i class="material-icons">update</i></a>';
+				        button=button+'<a href="<?=base_url()?>member/DelData/'+encodeURI(btoa(full.member_id))+'" class="btn btn-simple btn-danger btn-icon remove rounded-circle mx-1"><i class="material-icons">close</i></a>';
     			        return button;
 				}
 			}],

@@ -119,7 +119,7 @@
 					"url": "<?=base_url()?>admin/stok/Listdata",
 					"type": "POST",
 					"dataSrc":function (data){
-							return data["produk"];							
+							return data;							
 						  }
 			},
             "columns": [

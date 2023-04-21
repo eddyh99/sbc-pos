@@ -9,7 +9,7 @@
 			<!-- ======= Start Row Content Canva JS ====== -->
 			<div class="row">
                 <!-- ====== Start Tambah Pengguna ====== -->
-                <div class="card">
+                <div class="card mt-10">
                     <?php if (isset($_SESSION["message"])){?>
                     <div class="alert alert-warning"><?=$_SESSION["message"]?></div>
                     <?php } ?>

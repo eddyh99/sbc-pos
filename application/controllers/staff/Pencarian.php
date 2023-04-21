@@ -17,6 +17,7 @@ class Pencarian extends CI_Controller {
 			'extra'		=> 'staff/cashier/js/js_cash',
 			'collap'	 => 'collapse',
 			'mn_cari'	 => 'active',
+			'breadcrumb' => '/ Pencarian'
 		);
 		$this->load->view('layout/wrapper', $data);
 	}

@@ -3,7 +3,7 @@
 <?php } ?>
 
 
-<div class="content" style="background-color:white;height:100%">
+<div class="content " style="background-color:white;height:100%">
     <div class="container-fluid">
 <!-- Start -->
 

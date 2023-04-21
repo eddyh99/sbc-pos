@@ -12,9 +12,6 @@ class Pengguna extends CI_Controller {
     }
     
     public function index() {
-		// $result=$this->PenggunaModel->listpengguna();
-		// print_r(json_encode($result));
-		// die;
 
         $data	= array(
             'title'		 => 'Data Pengguna',
@@ -67,6 +64,7 @@ class Pengguna extends CI_Controller {
 			'colset'	 => 'collapse in',
 			'collap'	 => 'collapse',
 			'side1'		 => 'active',
+			'breadcrumb' => '/ Setup / Pengguna / Tambah Data'
 		);
 		$this->load->view('layout/wrapper', $data);
     }
@@ -93,9 +91,13 @@ class Pengguna extends CI_Controller {
             "nama"      => $nama,
             "role"      => $role,
         );
+
+		// print_r(json_encode($data));
+		// die;
+
+		// Checking Success and Error AddData
 		// $result		= $this->PenggunaModel->insertData($data);
 
-		
 		// untuk sukses
 		// $result["code"]=0;
 
@@ -118,15 +120,16 @@ class Pengguna extends CI_Controller {
     public function ubah($username){
         
 		$username	= base64_decode($this->security->xss_clean($username));
-		// $result		= $this->PenggunaModel->getUser($username);
 
+		// Menampilkan Hasil Single Data ketika di click username tertentu sebagai parameter
+		// $result		= $this->PenggunaModel->getUser($username);
 		$result = array (
 			"username"		=> "admin",
 			"nama"			=> "admin",
 			"role"			=> "Owner"
 		);
-		// print_r(json_encode($result['username']));
-		// die;
+
+
 
         $data		= array(
             'title'		 => 'Ubah Data Pengguna',
@@ -137,6 +140,7 @@ class Pengguna extends CI_Controller {
 			'colset'	 => 'collapse in',
 			'collap'	 => 'collapse',
 			'side1'		 => 'active',
+			'breadcrumb' => '/ Setup / Pengguna / Ubah Data'
 		);
 		$this->load->view('layout/wrapper', $data);
     }
@@ -172,10 +176,6 @@ class Pengguna extends CI_Controller {
             );
         }
 
-		print_r($data);
-		die;
-
-
 		// $result		= $this->PenggunaModel->updateData($data,$username);
 		//untuk cek sukses atau gagal dengan cara menambahkan array result
 
@@ -183,8 +183,8 @@ class Pengguna extends CI_Controller {
 		// $result["code"]=0;
 
 		//untuk gagal
-		// $result["code"]=5011
-		// $result["message"]="Data gagal di inputkan"
+		// $result["code"]=5011;
+		// $result["message"]="Data gagal di inputkan";
 
 		if ($result["code"]==0) {
 		    $this->session->set_flashdata('message', "Data Berhasil Disimpan");
@@ -205,8 +205,18 @@ class Pengguna extends CI_Controller {
             "status"  => 1,
         );
 
+		
+
+
 		$username	= base64_decode($this->security->xss_clean($username));
-		$result		= $this->PenggunaModel->hapusData($data,$username);
+		// $result		= $this->PenggunaModel->hapusData($data,$username);
+
+		// untuk sukses
+		// $result["code"]=0;
+
+		//untuk gagal
+		// $result["code"]=5011;
+		// $result["message"]="Data gagal di Dihapus";
 
 		if ($result["code"]==0) {
 		    $this->session->set_flashdata('message', $this->message->delete_msg());
