@@ -21,12 +21,31 @@ class Brand extends CI_Controller {
 			'colset'	 => 'collapse in',
 			'collap'	 => 'collapse',
 			'side3'		 => 'active',
+			'breadcrumb' => '/ Setup / Brand'
 		);
 		$this->load->view('layout/wrapper', $data);
 	}
 	
 	public function Listdata(){
-		$result		= $this->brandModel->listbrand();
+		// $result		= $this->brandModel->listbrand();
+		$result = array (
+			array(
+				"namabrand" 	=> "Baju",
+				"keterangan"	=> "Keterangan Baju",
+			),
+			array(
+				"namabrand" 	=> "Sepatu",
+				"keterangan"	=> "Keterangan Sepatu",
+			),
+			array(
+				"namabrand" 	=> "Celana",
+				"keterangan"	=> "Keterangan Celana",
+			),
+			array(
+				"namabrand" 	=> "Topi",
+				"keterangan"	=> "Keterangan Topi",
+			),
+		);
 		echo json_encode($result);
 	}
 
@@ -39,6 +58,7 @@ class Brand extends CI_Controller {
 			'colset'	 => 'collapse in',
 			'collap'	 => 'collapse',
 			'side3'		 => 'active',
+			'breadcrumb' => '/ Setup / Brand / Tambah Brand'
 		);
 		$this->load->view('layout/wrapper', $data);
     }
@@ -62,7 +82,19 @@ class Brand extends CI_Controller {
             "userid"        => $userid
         );
 
-		$result		= $this->brandModel->insertData($data);
+		// print_r(json_encode($data));
+		// die;
+
+		// Checking Success and Error 
+		// $result		= $this->brandModel->insertData($data);
+
+		// untuk sukses
+		// $result["code"]=0;
+
+		//untuk gagal
+		// $result["code"]=5011;
+		// $result["message"]="Data gagal di inputkan";
+
 
 		if ($result["code"]==0) {
 		    $this->session->set_flashdata('message', $this->message->success_msg());
@@ -79,7 +111,16 @@ class Brand extends CI_Controller {
         
 		$brand		= base64_decode($this->security->xss_clean($brand));
 
-		$result		= $this->brandModel->getBrand($brand);
+		// $result		= $this->brandModel->getBrand($brand);
+		$result		= array(
+            "brand"  		=> ucfirst('Baju'),
+            "keterangan" 	=> 'Ini Keterangan Baju',
+            "userid"     	=> 'admin',
+			"oldbrand"		=> 'oldbrand'
+        );
+		// print_r(json_encode($result));
+		// die;
+
         $data		= array(
             'title'      => 'Ubah Data Brand',
             'content'    => 'admin/brand/ubah',
@@ -89,6 +130,7 @@ class Brand extends CI_Controller {
 			'colset'	 => 'collapse in',
 			'collap'	 => 'collapse',
 			'side3'		 => 'active',
+			'breadcrumb' => '/ Setup / Brand / Ubah Brand'
 		);
 		$this->load->view('layout/wrapper', $data);
     }
@@ -99,7 +141,7 @@ class Brand extends CI_Controller {
 
 		if ($this->form_validation->run() == FALSE){
 		    $this->session->set_flashdata('message', $this->message->error_msg(validation_errors()));
-		    redirect("/admin/pengguna/ubah/".base64_encode($oldbrand));
+		    redirect("/admin/brand/ubah/".base64_encode($oldbrand));
             return;
 		}
 
@@ -108,12 +150,21 @@ class Brand extends CI_Controller {
         $userid		= $_SESSION["logged_status"]["username"];
 
         $data		= array(
-            "namabrand"  => ucfirst($brand),
-            "keterangan" => $keterangan,
-            "userid"     => $userid 
+            "namabrand"  	=> ucfirst($brand),
+            "keterangan" 	=> $keterangan,
+            "userid"     	=> $userid,
+			"oldbrand"		=> $oldbrand
         );
 
-		$result		= $this->brandModel->updateData($data,$oldbrand);
+		// Checking Success and Error 
+		// $result		= $this->brandModel->updateData($data,$oldbrand);
+
+		// untuk sukses
+		// $result["code"]=0;
+
+		//untuk gagal
+		// $result["code"]=5011;
+		// $result["message"]="Data gagal di inputkan";
 
 		if ($result["code"]==0) {
 		    $this->session->set_flashdata('message', $this->message->success_msg());
@@ -135,7 +186,15 @@ class Brand extends CI_Controller {
             "userid"  => $userid
         );
 
-		$result		= $this->brandModel->hapusData($data,$brand);
+		// Ceck Suskes & Gagal
+		// $result		= $this->brandModel->hapusData($data,$brand);
+	
+		// untuk sukses
+		// $result["code"]=0;
+
+		//untuk gagal
+		// $result["code"]=5011;
+		// $result["message"]="Data gagal di Dihapus";
 
 		if ($result["code"]==0) {
 		    $this->session->set_flashdata('message', $this->message->delete_msg());

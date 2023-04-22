@@ -26,6 +26,7 @@ class Opname extends CI_Controller {
 			'colmas'	=> 'collapse',
 			'colset'	=> 'collapse',
 			'collap'	=> 'collapse',
+			'breadcrumb' => '/ Penyesuaian Stock'
 		);
 		$this->load->view('layout/wrapper', $data);
 	}
@@ -41,13 +42,38 @@ class Opname extends CI_Controller {
 			'colmas'	=> 'collapse',
 			'colset'	=> 'collapse',
 			'collap'	=> 'collapse',
+			'breadcrumb' => '/ Konfirmasi Opname'
 		);
 		$this->load->view('layout/wrapper', $data);
 	}
     
     public function liststokopname(){
 		$storeid    = $this->security->xss_clean($this->input->post('storeid'));
-		$stok       = $this->opnameModel->listopname($storeid);
+		// $stok       = $this->opnameModel->listopname($storeid);
+		$stok = array(
+			array(
+				"barcode"		=> "0000000000000",
+				"produk"		=> "Gelang Sakti",
+				"size"			=> "M",
+				"old"			=> "100",
+				"baru"			=> "55"
+			),
+			array(
+				"barcode"		=> "111111111111",
+				"produk"		=> "Baju Polos",
+				"size"			=> "XXL",
+				"old"			=> "100",
+				"baru"			=> "55"
+			),
+			array(
+				"barcode"		=> "222222222222222",
+				"produk"		=> "Celana",
+				"size"			=> "L",
+				"old"			=> "200",
+				"baru"			=> "99"
+			),
+		);
+
         echo        json_encode($stok);
     }
     

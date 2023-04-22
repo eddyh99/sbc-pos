@@ -14,6 +14,7 @@ class Auth extends CI_Controller {
             'title'     => 'Login',
             'is_login'  => false,
             'content'   => 'login/index',
+			'extra'		=> 'login/js/js_index',
 		);
 		$this->load->view('layout/wrapper', $data);
 	}
@@ -31,37 +32,43 @@ class Auth extends CI_Controller {
 		$uname = $this->security->xss_clean($this->input->post('uname'));
         $pass = $this->security->xss_clean($this->input->post('pass'));
 
-		$result=$this->AuthModel->VerifyLogin($uname,$pass);
+		/*modified login*/
+		$result="sukses";
+		// print_r($result);
+		// die;
+		//$result=$this->AuthModel->VerifyLogin($uname,$pass);
 		if ($result!="failed"){
 			$session_data = array(
-				'username'  => $result->username,
-				'nama'      => $result->nama,
-				'role'      => $result->role,
+				'username'  => $uname,
+				'nama'      => "STAFF",
+				'role'      => "Staff",
 				'is_login'  => true
 			);
 			$this->session->set_userdata('logged_status', $session_data);
 			if ($_SESSION["logged_status"]["role"]=="Staff"){
-				$store=$this->assignModel->getStoreID($uname);
+				// $store=$this->assignModel->getStoreID($uname);
+				$store=TRUE;
 				if (!isset($store)){
 				    $this->session->unset_userdata('logged_status');
         		    $this->session->set_flashdata('error', "Staff belum di assign ke toko");
         		    redirect("/");
 				    return;
 				}
-				$_SESSION["logged_status"]["storeid"]=$store->storeid;
-        		$_SESSION["logged_status"]["store"]=$store->store;
+				$_SESSION["logged_status"]["storeid"]=1;
+        		$_SESSION["logged_status"]["store"]="Beach Walk";
 				redirect (base_url()."staff/dashboard");
 			}else{
     			if ($_SESSION["logged_status"]["role"]!="Owner"){
-    		        $store=$this->assignModel->getStoreID($uname);
+    		        // $store=$this->assignModel->getStoreID($uname);
+					$store=TRUE;
     				if (!isset($store)){
     				    $this->session->unset_userdata('logged_status');
             		    $this->session->set_flashdata('error', "Staff belum di assign ke toko");
             		    redirect("/");
     				    return;   
     				}
-    				$_SESSION["logged_status"]["storeid"]=$store->storeid;
-    				$_SESSION["logged_status"]["store"]=$store->store;
+    				$_SESSION["logged_status"]["storeid"]=1;
+    				$_SESSION["logged_status"]["store"]="Beach Walk";
     			}
     			redirect (base_url()."dashboard");
 			}

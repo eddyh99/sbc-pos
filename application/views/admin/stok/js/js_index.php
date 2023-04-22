@@ -18,7 +18,8 @@ $(function(){
 					"url": "<?=base_url()?>admin/stok/Listdata",
 					"type": "POST",
 					"dataSrc":function (data){
-							return data["produk"];							
+              console.log(data);
+							return data;							
 						  }
 			},
             "columns": [

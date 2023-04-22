@@ -12,25 +12,25 @@ $(function(){
             "processing": true,
             "serverSide": true,
             "pageLength": 50,
-
 			"order": [[ 1, "asc" ]],
             "scrollX": true,
 			"ajax": {
 					"url": "<?=base_url()?>admin/produk/Listdata",
 					"type": "POST",
 					"dataSrc":function (data){
-							return data["produk"];							
+							// return data["produk"];							
+							return data;							
 						  }
 			},
 		    "aoColumnDefs": [{	
 				"aTargets": [6],
 				"mData": "barcode",
 				"mRender": function (data, type, full, meta){
-				        button='<a href="<?=base_url()?>admin/produk/ubah/'+encodeURI(btoa(full.barcode))+'" class="btn btn-simple btn-danger btn-icon remove" title="Ubah"><i class="fas fa-pen"></i></a>';
+				        button='<a href="<?=base_url()?>admin/produk/ubah/'+encodeURI(btoa(full.barcode))+'" class="btn btn-simple btn-success btn-icon remove rounded-circle mx-1" title="Ubah"><i class="fas fa-pen fs-5"></i></a>';
 				        if (full.status==0){
-    				        button=button+'<a href="<?=base_url()?>admin/produk/DelData/'+encodeURI(btoa(full.barcode))+'" class="btn btn-simple btn-danger btn-icon remove" title="Hapus"><i class="fas fa-times"></i></a>';
+    				        button=button+'<a href="<?=base_url()?>admin/produk/DelData/'+encodeURI(btoa(full.barcode))+'" class="btn btn-simple btn-danger btn-icon remove rounded-circle mx-1" title="Hapus"><i class="fas fa-times fs-4"></i></a>';
 				        }else{
-    				        button=button+'<a href="<?=base_url()?>admin/produk/callData/'+encodeURI(btoa(full.barcode))+'" class="btn btn-simple btn-danger btn-icon remove" title="Aktifkan"><i class="fas fa-history"></i></a>';
+    				        button=button+'<a href="<?=base_url()?>admin/produk/callData/'+encodeURI(btoa(full.barcode))+'" class="btn btn-simple btn-danger btn-icon remove rounded-circle mx-1" title="Aktifkan"><i class="fas fa-history fs-4"></i></a>';
 				        }
     			        return button;				    
 				}

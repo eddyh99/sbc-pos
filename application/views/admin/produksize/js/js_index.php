@@ -23,7 +23,7 @@ $(function(){
 				"aTargets": [4],
 				"mData": "barcode",
 				"mRender": function (data, type, full, meta){
-				        button='<a href="<?=base_url()?>admin/produksize/DelData/'+encodeURI(btoa(full.barcode))+'/'+encodeURI(btoa(full.size))+'" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">close</i></a>';
+				        button='<a href="<?=base_url()?>admin/produksize/DelData/'+encodeURI(btoa(full.barcode))+'/'+encodeURI(btoa(full.size))+'" class="btn btn-simple btn-danger btn-icon remove rounded-circle"><i class="material-icons fs-3">close</i></a>';
     			        return button;
 				}
 			}],

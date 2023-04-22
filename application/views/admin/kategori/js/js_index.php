@@ -9,8 +9,8 @@ var table;
 $(function(){
 	table = $('#table_data').DataTable({
 			"order": [[ 0, "asc" ]],
-            "pageLength": 50,
             "scrollX": true,
+            "pageLength": 50,
 			"ajax": {
 					"url": "<?=base_url()?>admin/kategori/Listdata",
 					"type": "POST",
@@ -23,17 +23,17 @@ $(function(){
 				"mData": "namakategori",
 				"mRender": function (data, type, full, meta){
 				    if (full.role!="Admin"){
-				        button='<a href="<?=base_url()?>admin/kategori/ubah/'+encodeURI(btoa(full.namakategori))+'" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">update</i></a>';
-				        button=button+'<a href="<?=base_url()?>admin/kategori/DelData/'+encodeURI(btoa(full.namakategori))+'" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">close</i></a>';
+				        button='<a href="<?=base_url()?>admin/kategori/ubah/'+encodeURI(btoa(full.namakategori))+'" class="btn btn-simple btn-success btn-icon remove rounded-circle mx-1"><i class="material-icons fs-3">update</i></a>';
+				        button=button+'<a href="<?=base_url()?>admin/kategori/DelData/'+encodeURI(btoa(full.namakategori))+'" class="btn btn-simple btn-danger btn-icon remove rounded-circle mx-1"><i class="material-icons fs-3">close</i></a>';
     			        return button;
 				    }else{
-				        button='<a href="<?=base_url()?>admin/kategori/ubah/'+encodeURI(btoa(full.namakategori))+'" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">update</i></a>';
+				        button='<a href="<?=base_url()?>admin/kategori/ubah/'+encodeURI(btoa(full.namakategori))+'" class="btn btn-simple btn-danger btn-icon remove rounded-circle mx-1"><i class="material-icons fs-3">update</i></a>';
 				        return button;
 				    }
 				}
 			}],
             "columns": [
-				  { "data": "namakategori"},
+                { "data": "namakategori"},
 			]
 	});
 })

@@ -29,44 +29,68 @@ class Stok extends CI_Controller {
 			'colmas'	 => 'collapse in',
 			'colset'	 => 'collapse',
 			'collap'	 => 'collapse',
-			'side9'		 => 'active'
+			'side9'		 => 'active',
+			'breadcrumb' => '/ Master Data / Stok '
 		);
 		$this->load->view('layout/wrapper', $data);
 	}
 
 	public function Listdata(){
-        $columns	= array( 
-                0	=> 'barcode', 
-                1	=> 'namaproduk',
-                2	=> 'namabrand',
-                3	=> 'size',
-                4	=> 'stok',
-                5	=> 'store',
-            );
+        // $columns	= array( 
+        //         0	=> 'barcode', 
+        //         1	=> 'namaproduk',
+        //         2	=> 'namabrand',
+        //         3	=> 'size',
+        //         4	=> 'stok',
+        //         5	=> 'store',
+        //     );
 
-		$start	= $this->input->post('start');
-		$limit	= $this->input->post('length');		
-        $order	= $columns[$this->input->post('order')[0]['column']];
-        $dir	= $this->input->post('order')[0]['dir'];
+		// $start	= $this->input->post('start');
+		// $limit	= $this->input->post('length');		
+        // $order	= $columns[$this->input->post('order')[0]['column']];
+        // $dir	= $this->input->post('order')[0]['dir'];
   
-        $totalData		= $this->stokModel->allposts_count();
-        $totalFiltered	= $totalData; 
+        // $totalData		= $this->stokModel->allposts_count();
+        // $totalFiltered	= $totalData; 
             
-        if(empty($this->input->post('search')['value']))
-        {            
-            $result		= $this->stokModel->allposts($limit,$start,$order,$dir);
-        }
-        else {
-            $search		= $this->input->post('search')['value']; 
-            $result		=  $this->stokModel->posts_search($limit,$start,$search,$order,$dir);
-            $totalFiltered = $this->stokModel->posts_search_count($search);
-        }
+        // if(empty($this->input->post('search')['value']))
+        // {            
+        //     $result		= $this->stokModel->allposts($limit,$start,$order,$dir);
+        // }
+        // else {
+        //     $search		= $this->input->post('search')['value']; 
+        //     $result		=  $this->stokModel->posts_search($limit,$start,$search,$order,$dir);
+        //     $totalFiltered = $this->stokModel->posts_search_count($search);
+        // }
 		
-        $data=array(
-                "recordsTotal"      => $totalData,
-                "recordsFiltered"   => $totalFiltered,
-                "produk"			=> $result,
-            );
+        // $data=array(
+        //         "recordsTotal"      => $totalData,
+        //         "recordsFiltered"   => $totalFiltered,
+        //         "produk"			=> $result,
+        //     );
+
+
+		$data = array(
+			array(
+				"barcode"		=> "1234567901231",
+				"namaproduk"	=> "TAS SLEMPANG",
+				"namabrand"		=> "GUCCI",
+				"size"			=> "M",
+				"stok"			=> "88",
+				"harga"			=> "99000",
+				"store"			=> "Hanaka Denpasar",
+			),
+			array(
+				"barcode"		=> "2222222222",
+				"namaproduk"	=> "Baju Polos",
+				"namabrand"		=> "69Slam",
+				"size"			=> "XL",
+				"stok"			=> "10",
+				"harga"			=> "110000",
+				"store"			=> "Hanaka Mengwi",
+			)	
+		);
+			
 	    echo json_encode($data);
 	}
 
@@ -74,6 +98,9 @@ class Stok extends CI_Controller {
 		$size	= $this->sizeModel->Listsize();
 		$store	= $this->storeModel->Liststore();
 		$produk     = $this->produkModel->listproduk();
+
+
+
         $data	= array(
             'title'		=> 'Tambah Data Stok',
             'content'	=> 'admin/stok/tambah',
@@ -87,7 +114,8 @@ class Stok extends CI_Controller {
 			'colmas'	 => 'collapse in',
 			'colset'	 => 'collapse',
 			'collap'	 => 'collapse',
-			'side9'		 => 'active'
+			'side9'		 => 'active',
+			'breadcrumb' => '/ Master Data / Stok / Tambah Data'
 		);
 		$this->load->view('layout/wrapper', $data);
     }
@@ -96,6 +124,8 @@ class Stok extends CI_Controller {
 		$size	= $this->sizeModel->Listsize();
 		$store	= $this->storeModel->Liststore();
 		$produk     = $this->produkModel->listproduk();
+
+
         $data	= array(
             'title'		=> 'Tambah Data Stok',
             'content'	=> 'admin/stok/tambah',
@@ -108,7 +138,8 @@ class Stok extends CI_Controller {
 			'mn_master'	 => 'active',
 			'colmas'	 => 'collapse in',
 			'colset'	 => 'collapse',
-			'side16'	 => 'active'
+			'side16'	 => 'active',
+			'breadcrumb' => '/ Master Data / Restock',
 		);
 		$this->load->view('layout/wrapper', $data);
 	}
@@ -147,7 +178,18 @@ class Stok extends CI_Controller {
             array_push($data,$temp);
         }
         
-		$result		= $this->stokModel->insertbatchData($data);
+		// Checking Success and Error 
+		// $result		= $this->stokModel->insertbatchData($data);
+
+		// untuk sukses
+		// $result["code"]=0;
+
+		//untuk gagal
+		// $result["code"]=5011;
+		// $result["message"]="Data gagal di inputkan";
+
+
+
 		if ($result["code"]==0) {
 		    $this->session->set_flashdata("idstore",$storeid);
 		    $this->session->set_flashdata('message', $this->message->success_msg());
@@ -205,15 +247,30 @@ class Stok extends CI_Controller {
             );
         }
 
-		$result		= $this->stokModel->insertData($data);
+		// print_r(json_encode($data));
+		// die;
+		
+		// Checking Success and Error 
+		// $result		= $this->stokModel->insertData($data);
+
+		
+
+		// untuk sukses
+		// $result["code"]=0;
+
+		//untuk gagal
+		// $result["code"]=5011;
+		// $result["message"]="Data gagal di inputkan";
 
 		if ($result["code"]==0) {
 		    $this->session->set_flashdata("idstore",$storeid);
 		    $this->session->set_flashdata('message', $this->message->success_msg());
+		    $this->session->set_flashdata('alertcolor', 'success');
 		    redirect("/admin/stok/tambah");
             return;
 		}else{
-		    $this->session->set_flashdata('message', $this->message->error_msg($result["message"]));
+			$this->session->set_flashdata('message', $this->message->error_msg($result["message"]));
+		    $this->session->set_flashdata('alertcolor', 'danger');
 		    redirect("/admin/stok/tambah");
             return;
 		}

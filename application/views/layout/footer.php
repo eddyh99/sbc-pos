@@ -1,83 +1,74 @@
+							<?php if (@$_SESSION["logged_status"]["is_login"]){?>
+							<!-- ====== Start Footer Page ====== -->
+							<div id="kt_app_footer" class="app-footer">
+									<!-- ====== STart Footer container ====== -->
+									<div class="app-container container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack py-3">
+										<div class="text-dark order-2 order-md-1">
+											<span class="text-muted fw-semibold me-1">
+												<script>
+													document.write(new Date().getFullYear())
+												</script>
+											</span>
+											<a href="https://www.softwarebali.com/" target="_blank" class="text-gray-800 text-hover-primary">SoftwareBali.com</a>
+										</div>
+										<!-- ===== Start Menu ====== -->
+										<ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
+											<li class="menu-item">
+												<a href="https://www.softwarebali.com/" target="_blank" class="menu-link px-2">About</a>
+											</li>
+											<li class="menu-item">
+												<a href="https://www.softwarebali.com/" target="_blank" class="menu-link px-2">Support</a>
+											</li>
+											<li class="menu-item">
+												<a href="https://www.softwarebali.com/" target="_blank" class="menu-link px-2">Purchase</a>
+											</li>
+										</ul>
+										<!-- ====== End Menu ====== -->
+
+									</div>
+								<!--====== End Footer container ====== -->
+							</div>
+							<?php }?>
+							<!--====== End Footer Page ====== -->
+						</div>
+						<!--====== End Main Content ====== -->
+					</div>
+				<!-- ======  End Wrapper Side Bar ====== -->
 			</div>
+			<!-- ====== End Page ====== -->
 		</div>
-		<?php if (@$_SESSION["logged_status"]["is_login"]){?>
-        <footer class="footer">
-            <div class="container-fluid">
-                <p class="copyright pull-right">
-                    &copy;
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script>
-                    <a href="https://www.softwarebali.com/" rel="nofollow" target="_blank">Software Bali</a>
-                </p>
-            </div>
-        </footer>
-        <?php } ?>
-    </div>
-<!--   Core JS Files   -->
-<script src="<?=base_url()?>assets/js/jquery-3.1.1.min.js" type="text/javascript"></script>
-<script src="<?=base_url()?>assets/js/jquery-ui.min.js" type="text/javascript"></script>
-<script src="<?=base_url()?>assets/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="<?=base_url()?>assets/js/material.min.js" type="text/javascript"></script>
-<script src="<?=base_url()?>assets/js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
-<!-- Forms Validations Plugin -->
-<script src="<?=base_url()?>assets/js/jquery.validate.min.js"></script>
-<!--  Plugin for Date Time Picker and Full Calendar Plugin-->
-<script src="<?=base_url()?>assets/js/moment.min.js"></script>
-<!--  Charts Plugin -->
-<script src="<?=base_url()?>assets/js/chartist.min.js"></script>
-<!--  Plugin for the Wizard -->
-<script src="<?=base_url()?>assets/js/jquery.bootstrap-wizard.js"></script>
-<!--  Notifications Plugin    -->
-<script src="<?=base_url()?>assets/js/bootstrap-notify.js"></script>
-<!--   Sharrre Library    -->
-<script src="<?=base_url()?>assets/js/jquery.sharrre.js"></script>
-<!-- DateTimePicker Plugin -->
-<script src="<?=base_url()?>assets/js/bootstrap-datetimepicker.js"></script>
-<!-- Vector Map plugin -->
-<script src="<?=base_url()?>assets/js/jquery-jvectormap.js"></script>
-<!-- Sliders Plugin -->
-<script src="<?=base_url()?>assets/js/nouislider.min.js"></script>
-<!-- Select Plugin -->
-<script src="<?=base_url()?>assets/js/jquery.select-bootstrap.js"></script>
-<!--  DataTables.net Plugin    -->
-<script src="<?=base_url()?>assets/js/jquery.datatables.js"></script>
-<!-- Sweet Alert 2 plugin -->
-<script src="<?=base_url()?>assets/js/sweetalert2.js"></script>
-<!--	Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-<script src="<?=base_url()?>assets/js/jasny-bootstrap.min.js"></script>
-<!--  Full Calendar Plugin    -->
-<script src="<?=base_url()?>assets/js/fullcalendar.min.js"></script>
-<!-- TagsInput Plugin -->
-<script src="<?=base_url()?>assets/js/jquery.tagsinput.js"></script>
-<!-- Material Dashboard javascript methods -->
-<script src="<?=base_url()?>assets/js/material-dashboard.js"></script>
+		<!-- ====== End App ====== -->
 
-<script src="<?=base_url()?>assets/js/demo.js"></script>
-<script type="text/javascript">
-    $().ready(function() {
-        demo.checkFullPageBackgroundImage();
+		<!-- ======= Start Scrolltop ====== -->
+		<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
 
-        setTimeout(function() {
-            // after 1000 ms we add the class animated to the login/register card
-            $('.card').removeClass('card-hidden');
-        }, 700)
-    });
-    
-    function isNumber(evt) {
-        evt = (evt) ? evt : window.event;
-        var charCode = (evt.which) ? evt.which : evt.keyCode;
-        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-            return false;
-        }
-        return true;
-    }    
-</script>
+			<span class="svg-icon">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="currentColor" />
+					<path d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z" fill="currentColor" />
+				</svg>
+			</span>
 
-<?php 
-if (isset($extra)){
-	$this->load->view($extra);
-}
-?>
-</body>
+		</div>
+		<!--======= End Scrolltop ====== -->
+
+
+		<script>var hostUrl = "<?= base_url()?>assets/";</script>
+		<!--begin::Global Javascript Bundle(mandatory for all pages)-->
+		<script src="<?= base_url()?>assets/plugins/global/plugins.bundle.js"></script>
+		<script src="<?= base_url()?>assets/js/scripts.bundle.js"></script>
+		<!--end::Global Javascript Bundle-->
+		<!--begin::Vendors Javascript(used for this page only)-->
+		<script src="<?= base_url()?>assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+		<script src="<?= base_url()?>assets/plugins/custom/datatables/datatables.bundle.js"></script>
+		<!--end::Vendors Javascript-->
+
+        <?php 
+            if (isset($extra)){
+                $this->load->view($extra);
+            }
+        ?>
+
+	</body>
+
 </html>

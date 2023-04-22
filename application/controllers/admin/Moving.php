@@ -24,6 +24,7 @@ class Moving extends CI_Controller {
 			'colmas'	 => 'collapse',
 			'colset'	 => 'collapse',
 			'collap'	 => 'collapse',
+			'breadcrumb' => '/ Request Barang'
 		);
 		$this->load->view('layout/wrapper', $data);
 	}
@@ -54,11 +55,35 @@ class Moving extends CI_Controller {
             $totalFiltered = $this->movingModel->posts_search_count($search);
         }
 		
-        $data=array(
-                "recordsTotal"      => $totalData,
-                "recordsFiltered"   => $totalFiltered,
-                "produk"			=> $result,
-            );
+        // $data=array(
+        //         "recordsTotal"      => $totalData,
+        //         "recordsFiltered"   => $totalFiltered,
+        //         "produk"			=> $result,
+        //     );
+
+		$data = array(
+			array(
+				"dari"			=> "Hanaka Denpasar",
+				"mutasi_id"		=> "1",
+				"status"		=> "Belum",
+				"tanggal"		=> "2023-04-17 11:37:48",
+				"tujuan"		=> "hello"
+			),
+			array(
+				"dari"			=> "Hanaka Tabanan",
+				"mutasi_id"		=> "4",
+				"status"		=> "Batal",
+				"tanggal"		=> "2023-04-17 11:37:48",
+				"tujuan"		=> "Hanaka Singaraja"
+			),
+			array(
+				"dari"			=> "Hanaka Mengwi",
+				"mutasi_id"		=> "5",
+				"status"		=> "Diterima",
+				"tanggal"		=> "2023-04-17 11:37:48",
+				"tujuan"		=> "Hanaka Singaraja"
+			),
+		);
 	    echo json_encode($data);
 	}
 
@@ -88,18 +113,106 @@ class Moving extends CI_Controller {
             $totalFiltered = $this->movingModel->posts_search_countkonfirm($search);
         }
 		
-        $data=array(
-                "recordsTotal"      => $totalData,
-                "recordsFiltered"   => $totalFiltered,
-                "produk"			=> $result,
-            );
+        // $data=array(
+        //         "recordsTotal"      => $totalData,
+        //         "recordsFiltered"   => $totalFiltered,
+        //         "produk"			=> $result,
+        //     );
+		$data = array(
+			array(
+				"dari"			=> "Hanaka Denpasar",
+				"mutasi_id"		=> "1",
+				"status"		=> "Belum",
+				"tanggal"		=> "2023-04-17 11:37:48",
+				"tujuan"		=> "hello"
+			),
+			array(
+				"dari"			=> "Hanaka Tabanan",
+				"mutasi_id"		=> "4",
+				"status"		=> "Batal",
+				"tanggal"		=> "2023-04-17 11:37:48",
+				"tujuan"		=> "Hanaka Singaraja"
+			),
+			array(
+				"dari"			=> "Hanaka Mengwi",
+				"mutasi_id"		=> "5",
+				"status"		=> "Diterima",
+				"tanggal"		=> "2023-04-17 11:37:48",
+				"tujuan"		=> "Hanaka Singaraja"
+			),
+		);
 	    echo json_encode($data);
 	}
 
     public function tambah(){
 
-		$store	= $this->storeModel->Liststore();
-		$produk     = $this->produkModel->listproduk();
+		// $store	= $this->storeModel->Liststore();
+		// $produk     = $this->produkModel->listproduk();
+		$store = array(
+			array(
+				"storeid"		=> "1",
+				"store"			=> "Hanaka Denpasar",
+				"alamat"		=> "Jln Denpasar",
+				"keterangan"	=> "Keterangan Hanaka Denpasar",
+				"kontak"		=> "1212121212",
+				"status"		=> "0",
+				"userid"		=> "admin",
+				"lastupdate"	=> "2023-04-11 06:38:30"
+			),
+			array(
+				"storeid"		=> "2",
+				"store"			=> "Hanaka Mengwi",
+				"alamat"		=> "Jln Mengwi",
+				"keterangan"	=> "Keterangan Hanaka Mengwi ",
+				"kontak"		=> "12313213483",
+				"status"		=> "0",
+				"userid"		=> "admin",
+				"lastupdate"	=> "2023-04-11 06:38:30"
+			),
+			array(
+				"storeid"		=> "3",
+				"store"			=> "Hanaka Singaraja",
+				"alamat"		=> "Jln Singaraja",
+				"keterangan"	=> "Keterangan Hanaka Singaraja",
+				"kontak"		=> "1298798313",
+				"status"		=> "0",
+				"userid"		=> "admin",
+				"lastupdate"	=> "2023-04-11 06:38:30"
+			),
+		);
+		$produk = array(
+			array(
+				"barcode"	 	=> "0000000000000",
+				"namaproduk"	=> "Gelang Sakti",
+				"namabrand"	 	=> "Gelang karet",
+				"namakategori"	=> "Gelang",
+				"status"		=> "0",
+				"userid"		=> "admin",
+				"lastupdate"	=> "2023-04-13 18:28:24"
+			),
+			array(
+				"barcode"	 	=> "1212121212121",
+				"namaproduk"	=> "Baju Polos",
+				"namabrand"	 	=> "Baju",
+				"namakategori"	=> "Baju",
+				"status"		=> "0",
+				"userid"		=> "admin",
+				"lastupdate"	=> "2023-04-13 18:28:24"
+			),
+			array(
+				"barcode"	 	=> "1234567901231",
+				"namaproduk"	=> "Celana Jeans",
+				"namabrand"	 	=> "Celana",
+				"namakategori"	=> "Celana",
+				"status"		=> "0",
+				"userid"		=> "admin",
+				"lastupdate"	=> "2023-04-13 18:28:24"
+			),
+		);
+		// print_r(json_encode($store));
+		// die;
+
+
         $data	= array(
             'title'		=> 'Tambah Data',
             'content'	=> 'admin/moving/tambah',
@@ -111,6 +224,7 @@ class Moving extends CI_Controller {
 			'colmas'	 => 'collapse',
 			'colset'	 => 'collapse',
 			'collap'	 => 'collapse',
+			'breadcrumb' => '/ Request Barang / Tambah'
 		);
 		$this->load->view('layout/wrapper', $data);
     }
@@ -129,6 +243,8 @@ class Moving extends CI_Controller {
 		);
 		
 		$result	= $this->movingModel->insertData($pindah,$barang);
+		print_r(json_encode($result));
+		die;
 		$this->session->set_flashdata('message', "Data berhasil tersimpan");
 		echo "0";
 	}
@@ -139,7 +255,19 @@ class Moving extends CI_Controller {
 			"approved"	=> 2,
 			"userid"	=> $_SESSION["logged_status"]["username"]			
 		);
-		$result		= $this->movingModel->voidData($data,$mutasi_id);
+		
+		
+		// Checking Success and Error 
+		// $result		= $this->movingModel->voidData($data,$mutasi_id);
+
+		// untuk sukses
+		// $result["code"]=0;
+
+		//untuk gagal
+		// $result["code"]=5011;
+		// $result["message"]="Data gagal di Dihapus";
+
+
 
 		if ($result["code"]==0) {
 		    $this->session->set_flashdata('message', $this->message->success_msg());
@@ -158,7 +286,19 @@ class Moving extends CI_Controller {
 			"approved"	=> 1,
 			"userid"	=> $_SESSION["logged_status"]["username"]			
 		);
-		$result		= $this->movingModel->acceptData($data,$mutasi_id);
+		
+		
+		// Checking Success and Error 
+		// $result		= $this->movingModel->acceptData($data,$mutasi_id);
+
+		// untuk sukses
+		// $result["code"]=0;
+
+		//untuk gagal
+		// $result["code"]=5011;
+		// $result["message"]="Data gagal di Diterima";
+
+
 
 		if ($result["code"]==0) {
 		    $this->session->set_flashdata('message', $this->message->success_msg());
@@ -181,6 +321,7 @@ class Moving extends CI_Controller {
 			'colmas'	 => 'collapse',
 			'colset'	 => 'collapse',
 			'collap'	 => 'collapse',
+			'breadcrumb' => '/ Konfirmasi Permintaan'
 		);
 		
 		$this->load->view('layout/wrapper', $data);
@@ -247,6 +388,7 @@ class Moving extends CI_Controller {
 			'colmas'	 => 'collapse',
 			'colset'	 => 'collapse',
 			'collap'	 => 'collapse',
+			'breadcrumb' => '/ Request Barang / Detail'
 		);
 		$this->load->view('layout/wrapper', $data);
 	    

@@ -21,41 +21,77 @@ class Member extends CI_Controller {
 			'colmas'	 => 'collapse',
 			'colset'	 => 'collapse',
 			'collap'	 => 'collapse',
+			'breadcrumb' => '/ Member'
 		);
 		$this->load->view('layout/wrapper', $data);
 	}
 	
 	public function Listdata(){
-        $columns	= array( 
-                0	=>'member_id', 
-                1	=>'nama',
-                2	=> 'nope',
-                3	=> 'email',
-            );
-		$start		= $this->input->post('start');
-		$limit		= $this->input->post('length');
+        // $columns	= array( 
+        //         0	=>'member_id', 
+        //         1	=>'nama',
+        //         2	=> 'nope',
+        //         3	=> 'email',
+        //     );
+		// $start		= $this->input->post('start');
+		// $limit		= $this->input->post('length');
 		
-        $order		= $columns[$this->input->post('order')[0]['column']];
-        $dir		= $this->input->post('order')[0]['dir'];
+        // $order		= $columns[$this->input->post('order')[0]['column']];
+        // $dir		= $this->input->post('order')[0]['dir'];
   
-        $totalData	= $this->memberModel->allposts_count();
-        $totalFiltered = $totalData; 
+        // $totalData	= $this->memberModel->allposts_count();
+        // $totalFiltered = $totalData; 
             
-        if(empty($this->input->post('search')['value']))
-        {            
-            $result = $this->memberModel->allposts($limit,$start,$order,$dir);
-        }
-        else {
-            $search = $this->input->post('search')['value']; 
-            $result =  $this->memberModel->posts_search($limit,$start,$search,$order,$dir);
-            $totalFiltered = $this->memberModel->posts_search_count($search);
-        }
+        // if(empty($this->input->post('search')['value']))
+        // {            
+        //     $result = $this->memberModel->allposts($limit,$start,$order,$dir);
+        // }
+        // else {
+        //     $search = $this->input->post('search')['value']; 
+        //     $result =  $this->memberModel->posts_search($limit,$start,$search,$order,$dir);
+        //     $totalFiltered = $this->memberModel->posts_search_count($search);
+        // }
 		
-        $data		= array(
-                "recordsTotal"      => $totalData,
-                "recordsFiltered"   => $totalFiltered,
-                "member"			=> $result,
-            );
+        // $data		= array(
+        //         "recordsTotal"      => $totalData,
+        //         "recordsFiltered"   => $totalFiltered,
+        //         "member"			=> $result,
+        //     );
+
+		$data = array(
+			array(
+				"alamat" 		=> "Mengwi",
+				"email"			=> "boy@gmail.com",
+				"jnskel"		=> "laki-laki",
+				"keterangan"	=> "Ini Keterangan",
+				"lastupdate"	=> "2023-04-14 02:53:40",
+				"member_id"		=> "2023041400003",
+				"nama"			=> "Boy William",
+				"nope"			=> "2123423232224",
+				"socmed"		=> "boytamvan",
+				"status"		=> "0",
+				"tempat_lahir"	=> "Denpasar",
+				"tgl_lahir"		=> "2023-04-20",
+				"userid"		=> "admin"
+			),
+			array(
+				"alamat" 		=> "Singaraja",
+				"email"			=> "kelvin@gmail.com",
+				"jnskel"		=> "perempuan",
+				"keterangan"	=> "Ini Keterangan",
+				"lastupdate"	=> "2023-04-14 02:53:40",
+				"member_id"		=> "2023041400123",
+				"nama"			=> "Kelvin Sanjaya",
+				"nope"			=> "2123423232123",
+				"socmed"		=> "kelvintoples",
+				"status"		=> "0",
+				"tempat_lahir"	=> "Singaraja",
+				"tgl_lahir"		=> "2023-04-12",
+				"userid"		=> "admin"
+			),
+		);
+			
+		
 	    echo json_encode($data);
 	}
 
@@ -67,6 +103,7 @@ class Member extends CI_Controller {
 			'colmas'	 => 'collapse',
 			'colset'	 => 'collapse',
 			'collap'	 => 'collapse',
+			'breadcrumb' => '/ Member / Tambah Data'
 		);
 		$this->load->view('layout/wrapper', $data);
     }
@@ -110,7 +147,20 @@ class Member extends CI_Controller {
             "socmed"		=> $socmed,
             "keterangan"	=> $keterangan,
         );
-		$result		 = $this->memberModel->insertData($data);
+
+		// print_r(json_encode($data));
+		// die;
+		
+		// Checking Success and Error 
+		// $result		 = $this->memberModel->insertData($data);
+		
+
+		// untuk sukses
+		// $result["code"]=0;
+
+		//untuk gagal
+		// $result["code"]=5011;
+		// $result["message"]="Data gagal di inputkan";
 
 		if ($result["code"]==0) {
 		    $this->session->set_flashdata('message', $this->message->success_msg());
@@ -125,15 +175,40 @@ class Member extends CI_Controller {
 
     public function ubah($memberid){
 		$memberid		= base64_decode($this->security->xss_clean($memberid));
-		$result			= $this->memberModel->getMember($memberid);
+
+
+		// $result			= $this->memberModel->getMember($memberid);
+		$result = array (
+			"code"		=> 0,
+			"message"	=>  array (
+				"member_id"		=> "2023041400003",
+				"nope"		 	=>"2123423232224",
+				"nama"			=> "Kevin ",
+				"alamat"		=> "Mengwi",
+				"tempat_lahir"	=> "Denpasar",
+				"tgl_lahir"		=> "2023-04-20",
+				"jnskel"		=> "laki-laki",
+				"email"			=> "boy@gmail.com",
+				"socmed"		=> "boytamvan",
+				"keterangan"	=> "boy william",
+				"status"		=> "0",
+				"userid"		=> "",
+				"lastupdate"	=> "2023-04-14 02:53:40",
+			)
+		);
+		// print_r(json_encode($result));
+		// die;
+
+
         $data			= array(
             'title'      => 'Ubah Data Member',
             'content'    => 'member/ubah',
-            'detail'     => $result["message"],
+            'detail'     => $result['message'],
 			'mn_member'	 => 'active',
 			'colmas'	 => 'collapse',
 			'colset'	 => 'collapse',
 			'collap'	 => 'collapse',
+			'breadcrumb' => '/ Member / Edit Member'
 		);
 		$this->load->view('layout/wrapper', $data);
     }
@@ -176,7 +251,20 @@ class Member extends CI_Controller {
             "socmed"		=> $socmed,
             "keterangan"	=> $keterangan,
         );
-		$result		 = $this->memberModel->updateData($data,$memberid);
+
+		// Checking Success and Error 
+		// $result		 = $this->memberModel->updateData($data,$memberid);
+		
+
+
+		// untuk sukses
+		// $result["code"]=0;
+
+		//untuk gagal
+		// $result["code"]=5011;
+		// $result["message"]="Data gagal di Update";
+
+
 
 		if ($result["code"]==0) {
 		    $this->session->set_flashdata('message', $this->message->success_msg());
@@ -184,7 +272,7 @@ class Member extends CI_Controller {
             return;
 		}else{
 		    $this->session->set_flashdata('message', $this->message->error_msg($result["message"]));
-		    redirect("/member/ubah");
+		    redirect("/member");
             return;
 		}
 	}

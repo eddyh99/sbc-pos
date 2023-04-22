@@ -22,12 +22,27 @@ class Size extends CI_Controller {
 			'colset'	 => 'collapse in',
 			'collap'	 => 'collapse',
 			'side5'		 => 'active',
+			'breadcrumb' => '/ Setup / Size'
 		);
 		$this->load->view('layout/wrapper', $data);
 	}
 	
 	public function Listdata(){
-		$result		= $this->sizeModel->Listsize();
+		// $result		= $this->sizeModel->Listsize();
+		$result = array(
+			array(
+				"nama"	=> "M"
+			), 	
+			array(
+				"nama"	=> "L"
+			), 	
+			array(
+				"nama"	=> "N"
+			), 	
+			array(
+				"nama"	=> "XXL"
+			), 	
+		);
 		echo json_encode($result);
 	}
 
@@ -44,6 +59,7 @@ class Size extends CI_Controller {
 			'colset'	 => 'collapse in',
 			'collap'	 => 'collapse',
 			'side5'		 => 'active',
+			'breadcrumb' => '/ Setup / Size / Tambah Size'
 		);
 		$this->load->view('layout/wrapper', $data);
     }
@@ -64,7 +80,21 @@ class Size extends CI_Controller {
             "nama"          => $size,
             "userid"        => $userid
         );
-		$result		= $this->sizeModel->insertData($data);
+		
+		// print_r(json_encode($data));
+		// die;
+		
+		// Checking Success and Error 
+		// $result		= $this->sizeModel->insertData($data);
+		
+
+		// untuk sukses
+		// $result["code"]=0;
+
+		//untuk gagal
+		// $result["code"]=5011;
+		// $result["message"]="Data gagal di inputkan";
+
 
 		if ($result["code"]==0) {
 		    $this->session->set_flashdata('message', $this->message->success_msg());
@@ -84,28 +114,23 @@ class Size extends CI_Controller {
         
 		$size		= base64_decode($this->security->xss_clean($size));
 
-		$result		= $this->sizeModel->getSize($size);
+		// $result		= $this->sizeModel->getSize($size);
+		$result		= array(
+			"nama"		=> "M",
+			"userid"	=> "admin",
+			"oldsize"	=> "oldsize"	
+        );
+
+		// print_r(json_encode($result));
+		// die;
+
         $data		= array(
             'title'      => 'Ubah Data Size',
             'content'    => 'admin/size/ubah',
             'detail'     => $result,
-			'mn_dash'	 => '',
 			'mn_setting' => 'active',
-			'mn_master'	 => '',
-			'mn_member'	 => '',
-			'mn_req'	 => '',
-			'mn_confirm' => '',
-			'colmas'	 => '',
 			'colset'	 => 'collapse-in',
-			'side1'		 => '',
-			'side2'		 => '',
-			'side3'		 => '',
-			'side4'		 => '',
 			'side5'		 => 'active',
-			'side6'		 => '',
-			'side7'		 => '',
-			'side8'		 => '',
-			'side9'		 => ''
 		);
 		$this->load->view('layout/wrapper', $data);
     }
@@ -116,7 +141,7 @@ class Size extends CI_Controller {
 
 		if ($this->form_validation->run() == FALSE){
 		    $this->session->set_flashdata('message', $this->message->error_msg(validation_errors()));
-		    redirect("/admin/pengguna/ubah/".base64_encode($oldsize));
+		    redirect("/admin/size/ubah/".base64_encode($oldsize));
             return;
 		}
 
@@ -125,10 +150,19 @@ class Size extends CI_Controller {
 
         $data		= array(
             "nama"      => $size,
-            "userid"    => $userid 
+            "userid"    => $userid
         );
 
-		$result	= $this->sizeModel->updateData($data,$oldsize);
+		// Checking Success and Error 
+		// $result	= $this->sizeModel->updateData($data,$oldsize);
+		
+
+		// untuk sukses
+		// $result["code"]=0;
+
+		//untuk gagal
+		// $result["code"]=5011;
+		// $result["message"]="Data gagal di inputkan";
 
 		if ($result["code"]==0) {
 		    $this->session->set_flashdata('message', $this->message->success_msg());
@@ -146,8 +180,22 @@ class Size extends CI_Controller {
             "status"  => 1,
         );
 
+		// print_r(json_encode($data));
+		// die;
+		
+		// Checking Success and Error 
+		// $result = $this->sizeModel->hapusData($data,$size);
+		
+
+		// untuk sukses
+		// $result["code"]=0;
+
+		//untuk gagal
+		// $result["code"]=5011;
+		// $result["message"]="Data gagal di inputkan";
+
+
 		$size	= base64_decode($this->security->xss_clean($size));
-		$result = $this->sizeModel->hapusData($data,$size);
 
 		if ($result["code"]==0) {
 		    $this->session->set_flashdata('message', $this->message->delete_msg());

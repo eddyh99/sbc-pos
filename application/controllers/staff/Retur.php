@@ -23,12 +23,33 @@ class Retur extends CI_Controller {
 			'colmas'	=> 'collapse',
 			'colset'	=> 'collapse',
 			'collap'	 => 'collapse',
+			'breadcrumb' => '/ Retur Customer'
 		);
 		$this->load->view('layout/wrapper', $data);
 	}
 
 	public function Listdata(){
-		$result		= $this->returModel->listnota();
+		// $result		= $this->returModel->listnota();
+		$result = array(
+			array(
+				"id"			=> "1",
+				"member_id"		=> "001",
+				"nonota"		=> "111",
+				"tanggal"		=> "10-12-2023",
+				"nama"			=> "yanyiik",
+				"total"			=> "250000",
+				"method"		=> "cash",
+			),
+			array(
+				"id"			=> "2",
+				"member_id"		=> "002",
+				"nonota"		=> "222",
+				"tanggal"		=> "10-12-2023",
+				"nama"			=> "ahmad",
+				"total"			=> "370000",
+				"method"		=> "cash",
+			),
+		);
 		echo json_encode($result);
 	}
 
@@ -45,14 +66,46 @@ class Retur extends CI_Controller {
 			'collap'	 => 'collapse',
 			'produk'    => $produk,
 			'key'       => $key,
-			'memberid'  => $member
+			'memberid'  => $member,
+			'breadcrumb' => '/ Retur Customer / Detail'
 		);
 		$this->load->view('layout/wrapper', $data);
 	}
 	
 	public function listretur(){
 		$key	 = $this->security->xss_clean($this->input->post('key'));
-	    $result  = $this->returModel->getDetail($key);
+	    // $result  = $this->returModel->getDetail($key);
+
+		$result = array(
+			array(
+				"barcode"	 	=> "0000000000000",
+				"namaproduk"	=> "Gelang Sakti",
+				"namabrand"	 	=> "Gelang karet",
+				"size"			=> "M",
+				"jumlah"		=> "2",
+				"harga"			=> "100000",
+				"total"			=> "200000"
+			),
+			array(
+				"barcode"	 	=> "1212121212121",
+				"namaproduk"	=> "Baju Polos",
+				"namabrand"	 	=> "Baju",
+				"size"			=> "XXL",
+				"jumlah"		=> "1",
+				"harga"			=> "100000",
+				"total"			=> "100000"
+			),
+			array(
+				"barcode"	 	=> "1212121212121",
+				"namaproduk"	=> "Baju Polos",
+				"namabrand"	 	=> "Baju",
+				"size"			=> "XXL",
+				"jumlah"		=> "1",
+				"harga"			=> "100000",
+				"total"			=> "100000"
+			),
+		);
+
 	    echo json_encode($result);
 	}
 	

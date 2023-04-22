@@ -12,7 +12,6 @@ class Dashboard extends CI_Controller {
     }
 
 	public function index() {
-	    
         $data = array(
             'title'		 => 'Dashboard Area',
             'content'	 => 'admin/dashboard/index',
@@ -21,6 +20,7 @@ class Dashboard extends CI_Controller {
 			'collap'	 => 'collapse',
 			'colmas'	 => 'collapse',
 			'colset'	 => 'collapse',
+            'breadcrumb' => '/ Dashboard'
 		);
 		$this->load->view('layout/wrapper', $data);
 	}

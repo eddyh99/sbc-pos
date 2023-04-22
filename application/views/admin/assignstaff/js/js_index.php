@@ -24,7 +24,7 @@ $(function(){
 				"mRender": function (data, type, full, meta){
 					console.log(full.storeid);
 				    if (full.role!="Admin"){
-				        button='<a href="<?=base_url()?>admin/assignstaff/DelData/'+encodeURI(btoa(full.username))+'/'+encodeURI(btoa(full.storeid))+'" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">close</i></a>';
+				        button='<a href="<?=base_url()?>admin/assignstaff/DelData/'+encodeURI(btoa(full.username))+'/'+encodeURI(btoa(full.storeid))+'" class="btn btn-simple btn-danger btn-icon remove rounded-circle mx-1"><i class="material-icons fs-3">close</i></a>';
     			        return button;
 				    }
 				}

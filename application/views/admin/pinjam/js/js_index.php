@@ -15,6 +15,7 @@ var table;
 			},
 		    "aoColumnDefs": [{	
 				"aTargets": [3],
+                "mData" : "id",
 				"mRender": function (data, type, full, meta){
 				    var button='';
 				    <?php if ($_SESSION["logged_status"]["role"]!="Staff"){?>

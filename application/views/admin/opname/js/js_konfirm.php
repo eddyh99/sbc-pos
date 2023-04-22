@@ -10,6 +10,7 @@
 					    "storeid":function(){return $("#store").val()}
 					},
 					"dataSrc":function (data){
+                            console.log(data);
 							return data;							
 						  }
 			},

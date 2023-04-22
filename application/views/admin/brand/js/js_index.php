@@ -23,18 +23,18 @@ $(function(){
 				"mData": "namabrand",
 				"mRender": function (data, type, full, meta){
 				    if (full.role!="Admin"){
-				        button='<a href="<?=base_url()?>admin/brand/ubah/'+encodeURI(btoa(full.namabrand))+'" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">update</i></a>';
-				        button=button+'<a href="<?=base_url()?>admin/brand/DelData/'+encodeURI(btoa(full.namabrand))+'" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">close</i></a>';
+				        button='<a href="<?=base_url()?>admin/brand/ubah/'+encodeURI(btoa(full.namabrand))+'" class="btn btn-simple btn-success btn-icon remove rounded-circle mx-1"><i class="material-icons fs-3">update</i></a>';
+				        button=button+'<a href="<?=base_url()?>admin/brand/DelData/'+encodeURI(btoa(full.namabrand))+'" class="btn btn-simple btn-danger btn-icon remove rounded-circle mx-1"><i class="material-icons fs-3">close</i></a>';
     			        return button;
 				    }else{
-				        button='<a href="<?=base_url()?>admin/brand/ubah/'+encodeURI(btoa(full.namabrand))+'" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">update</i></a>';
+				        button='<a href="<?=base_url()?>admin/brand/ubah/'+encodeURI(btoa(full.namabrand))+'" class="btn btn-simple btn-danger btn-icon remove rounded-circle mx-1"><i class="material-icons fs-3">update</i></a>';
 				        return button;
 				    }
 				}
 			}],
             "columns": [
-				  { "data": "namabrand"},
-                  { "data": "keterangan" },
+                { "data": "namabrand"},
+                { "data": "keterangan" },
 			]
 	});
 })

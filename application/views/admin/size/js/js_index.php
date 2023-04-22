@@ -23,17 +23,17 @@ $(function(){
 				"mData": "nama",
 				"mRender": function (data, type, full, meta){
 				    if (full.role!="Admin"){
-				        button='<a href="<?=base_url()?>admin/size/ubah/'+encodeURI(btoa(full.nama))+'" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">update</i></a>';
-				        button=button+'<a href="<?=base_url()?>admin/size/DelData/'+encodeURI(btoa(full.nama))+'" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">close</i></a>';
+				        button='<a href="<?=base_url()?>admin/size/ubah/'+encodeURI(btoa(full.nama))+'" class="btn btn-simple btn-success btn-icon remove rounded-circle mx-1"><i class="material-icons fs-3">update</i></a>';
+				        button=button+'<a href="<?=base_url()?>admin/size/DelData/'+encodeURI(btoa(full.nama))+'" class="btn btn-simple btn-danger btn-icon remove rounded-circle mx-1"><i class="material-icons fs-3">close</i></a>';
     			        return button;
 				    }else{
-				        button='<a href="<?=base_url()?>admin/size/ubah/'+encodeURI(btoa(full.nama))+'" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">update</i></a>';
+				        button='<a href="<?=base_url()?>admin/size/ubah/'+encodeURI(btoa(full.nama))+'" class="btn btn-simple btn-danger btn-icon remove rounded-circle mx-1"><i class="material-icons fs-3">update</i></a>';
 				        return button;
 				    }
 				}
 			}],
             "columns": [
-				  { "data": "nama"},
+                { "data": "nama"},
 			]
 	});
 })

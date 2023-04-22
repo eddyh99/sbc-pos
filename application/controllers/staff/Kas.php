@@ -21,12 +21,22 @@ class Kas extends CI_Controller {
 			'colmas'	 => 'collapse',
 			'colset'	 => 'collapse',
 			'collap'	 => 'collapse',
+			'breadcrumb' => '/ Kas'
 		);
 		$this->load->view('layout/wrapper', $data);
 	}
 
 	public function Listdata(){
-		$result		= $this->kasModel->listkas();
+		// $result		= $this->kasModel->listkas();
+
+		$result = array(
+			array(
+				"tanggal"		=> "12-01-2023",
+				"nominal"		=> "99000",
+				"keterangan"	=> "Ini Deskripsi"
+			)
+		);
+
 		echo json_encode($result);
 	}
 	
@@ -65,7 +75,21 @@ class Kas extends CI_Controller {
             "userid"        => $userid
         );
 
-		$result		= $this->kasModel->insertData($data);
+		
+		
+		// print_r(json_encode($data));
+		// die;
+		
+		// Checking Success and Error 
+		// $result		= $this->kasModel->insertData($data);
+
+		// untuk sukses
+		// $result["code"]=0;   
+
+		//untuk gagal
+		// $result["code"]=5011;
+		// $result["message"]="Data gagal di inputkan";
+
 
 		if ($result["code"]==0) {
 		    $this->session->set_flashdata('message', $this->message->success_msg());
@@ -88,12 +112,73 @@ class Kas extends CI_Controller {
 	    }
 	    $storeid=@$_GET["store"];
 	    
-	    $store=$this->storeModel->liststore();
+	    // $store=$this->storeModel->liststore();
+		$store = array(
+			array(
+				"storeid" 		=> "1",
+				"store"			=> "Hanaka Denpasar",
+				"alamat"		=> "Panjer",
+				"keterangan"	=> "Keterangan Hanaka Denpasar",
+				"kontak"		=> "123412",
+				"status"		=> "0",
+				"userid"		=> "admin",
+				"lastupdate"	=> "2023-04-11 06:38:30"
+			),
+			array(
+				"storeid" 		=> "2",
+				"store"			=> "Hanaka Mengwi",
+				"alamat"		=> "Jln Mengwi",
+				"keterangan"	=> "Keterangan Hanaka Mengwi",
+				"kontak"		=> "111111",
+				"status"		=> "0",
+				"userid"		=> "admin",
+				"lastupdate"	=> "2023-04-11 06:38:30"
+			),
+			array(
+				"storeid" 		=> "3",
+				"store"			=> "Hanaka Singaraja",
+				"alamat"		=> "Jln Singaraja",
+				"keterangan"	=> "Keterangan Hanaka Singaraja",
+				"kontak"		=> "0000000088",
+				"status"		=> "0",
+				"userid"		=> "admin",
+				"lastupdate"	=> "2023-04-11 06:38:30"
+			),
+		);
+		// print_r(json_encode($store));
+		// die;
+
         if (($_SESSION["logged_status"]["role"]=="Office Manager") || ($_SESSION["logged_status"]["role"]=="Office Staff")){
-	        $result=$this->kasModel->lastSaldo($tglcari,$storeid);
+	        // $result=$this->kasModel->lastSaldo($tglcari,$storeid);
+			$result = array (
+				"saldo"		=> 12000,
+				"jual"		=> 12000,
+				"tunai"		=> 100000,
+				"retur"		=> array(
+					"tunai"	=> 500000,
+					"non"	=> 3000
+				),
+				"kas"	=> []
+			);
+			// print_r(json_encode($result));
+			// die;
         }else{
-	        $result=$this->kasModel->lastSaldo($tglcari);
+			// $result=$this->kasModel->lastSaldo($tglcari);
+			$result = array (
+				"saldo"		=> 12000,
+				"jual"		=> 12000,
+				"tunai"		=> 100000,
+				"retur"		=> array(
+					"tunai"	=> 500000,
+					"non"	=> 3000
+				),
+				"kas"	=> []
+			);
+			// print_r(json_encode($result));
+			// die;
         }
+
+
         $data = array(
             'title'		 => 'Rekapan Harian',
             'content'	 => 'staff/kas/tutup',
@@ -106,6 +191,7 @@ class Kas extends CI_Controller {
 			'colmas'	 => 'collapse',
 			'colset'	 => 'collapse',
 			'collap'	 => 'collapse',
+			'breadcrumb' => '/ Rekapan Harian'
 		);
 		$this->load->view('layout/wrapper', $data);
 	}

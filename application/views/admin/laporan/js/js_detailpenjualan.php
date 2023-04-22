@@ -36,6 +36,7 @@ var table;
 				    key     : function(){return $("#key").val()},
 				},
 				"dataSrc":function (data){
+                        console.log(data);
 						return data;
 					  }
 			},
@@ -50,7 +51,7 @@ var table;
                   { "data": "diskonp","render":$.fn.dataTable.render.number( ',', '.', 0, '' )  },
                   { "data": "total","render":$.fn.dataTable.render.number( ',', '.', 0, '' )  },
     			<?php if ($_SESSION["logged_status"]["role"]!="Staff"){?>
-                  { "data": "alasan" },
+                  { "data": "alasan"},
                 <?php }  ?>
 			]
 	});

@@ -21,12 +21,22 @@ class Bayar extends CI_Controller {
 			'colmas'	=> 'collapse',
 			'colset'	=> 'collapse',
 			'collap'	=> 'collapse',
+			'breadcrumb' => '/ Ganti Cara Bayar'
 		);
 		$this->load->view('layout/wrapper', $data);
 	}
 	
 	public function Listdata(){
-		$result		= $this->returModel->listnota();
+		// $result		= $this->returModel->listnota();
+		$result = array(
+			array(
+				"nonota"		=> "111",
+				"tanggal"		=> "17-01-2023",
+				"nama"			=> "yanyiik",
+				"total"			=> "12000000",
+				"method"		=> "cash"
+			),
+		);
 		echo json_encode($result);
 	}
 	
@@ -42,6 +52,7 @@ class Bayar extends CI_Controller {
 			'colmas'	=> 'collapse',
 			'colset'	=> 'collapse',
 			'collap'	=> 'collapse',
+			'breadcrumb' => '/ Ganti Cara Bayar / Ganti'
 		);
 		$this->load->view('layout/wrapper', $data);
 	}

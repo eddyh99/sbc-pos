@@ -19,7 +19,7 @@ $(function(){
 					"url": "<?=base_url()?>admin/moving/Listdata",
 					"type": "POST",
 					"dataSrc":function (data){
-							return data["produk"];							
+							return data;							
 						  }
 			},
 		    "aoColumnDefs": [{	
@@ -30,13 +30,13 @@ $(function(){
 					<?php if($_SESSION["logged_status"]["role"]!="Office Staff"){?>
     					if ((full.status=="Belum") || (full.status=="Dikirim"))
     					{
-    						button='<a href="<?=base_url()?>admin/moving/terima/'+encodeURI(btoa(full.mutasi_id))+'" class="btn btn-simple btn-success btn-icon"><i class="material-icons">check_circle</i></a>';
-    				        button=button+'<a href="<?=base_url()?>admin/moving/batal/'+encodeURI(btoa(full.mutasi_id))+'" class="btn btn-simple btn-danger btn-icon"><i class="material-icons">close</i></a>';
+    						button='<a href="<?=base_url()?>admin/moving/terima/'+encodeURI(btoa(full.mutasi_id))+'" class="btn btn-simple btn-success btn-icon rounded-circle mx-1"><i class="material-icons fs-3">check_circle</i></a>';
+    				        button=button+'<a href="<?=base_url()?>admin/moving/batal/'+encodeURI(btoa(full.mutasi_id))+'" class="btn btn-simple btn-danger btn-icon rounded-circle mx-1"><i class="material-icons fs-3">close</i></a>';
     					}else{
     					    button=""
     					}
 				    <?php } ?>
-    				button=button+'<a href="<?=base_url()?>admin/moving/detail/'+encodeURI(btoa(full.mutasi_id))+'/0" class="btn btn-info btn-sm btn-icon"><i class="fas fa-info"></i> Detail</a>';
+    				button=button+'<a href="<?=base_url()?>admin/moving/detail/'+encodeURI(btoa(full.mutasi_id))+'/0" class="btn btn-info btn-sm btn-icon w-60px"><i class="fas fa-info fs-3 px-1"></i>Detail</a>';
 				    return button;			    
 				}
 			}],

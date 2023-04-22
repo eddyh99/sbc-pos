@@ -15,7 +15,7 @@ $(function(){
 		    "aoColumnDefs": [{	
 				"aTargets": [5],
 				"mRender": function (data, type, full, meta){
-				    var button = "<a href='<?=base_url()?>admin/bayar/ganti/"+btoa(full.id)+"' class='btn btn-sm'>Ganti</a>";
+				    var button = "<a href='<?=base_url()?>admin/bayar/ganti/"+btoa(full.id)+"' class='btn btn-sm btn-success'>Ganti</a>";
 				    var order=moment(full.tanggal).format("YYYY-MM-DD");
 				    var maxtgl = moment().subtract(3, "days").format("YYYY-MM-DD");
 				    if (order>maxtgl){

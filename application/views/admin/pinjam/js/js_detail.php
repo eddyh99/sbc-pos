@@ -15,6 +15,7 @@
 					    key: $("#key").val()
 					},
 					"dataSrc":function (data){
+                            console.log(data);
 							return data;							
 						  }
 			},
@@ -49,30 +50,30 @@
             ],
 	});
     
-    var hasil=0;
-    $('#table_pinjam tbody').on('click', 'input[type="checkbox"]', function(e){
-        var $row = $(this).closest('tr');
-        var data = tablepinjam.row($row).data();
-        if(this.checked){
-            hasil=hasil+Number(data.total)
-            barangpinjam.push([data.barcode]);
-            $row.addClass('selected');
-        } else {
-            hasil=hasil-Number(data.total)
-            for (i=0;i<barangpinjam.length;i++){
-                if (barangpinjam[i][0]==data.barcode){
-                    barangpinjam.splice(i,1);
-                }
-            }
-            $row.removeClass('selected');
-        }
-		localStorage.setItem('returpinjam', JSON.stringify(barangpinjam));
-        e.stopPropagation();
-    });
+    // var hasil=0;
+    // $('#table_pinjam tbody').on('click', 'input[type="checkbox"]', function(e){
+    //     var $row = $(this).closest('tr');
+    //     var data =  .row($row).data();
+    //     if(this.checked){
+    //         hasil=hasil+Number(data.total)
+    //         barangpinjam.push([data.barcode]);
+    //         $row.addClass('selected');
+    //     } else {
+    //         hasil=hasil-Number(data.total)
+    //         for (i=0;i<barangpinjam.length;i++){
+    //             if (barangpinjam[i][0]==data.barcode){
+    //                 barangpinjam.splice(i,1);
+    //             }
+    //         }
+    //         $row.removeClass('selected');
+    //     }
+	// 	localStorage.setItem('returpinjam', JSON.stringify(barangpinjam));
+    //     e.stopPropagation();
+    // });
     
-    $('#table_pinjam').on('click', 'tbody td, thead th:first-child', function(e){
-      $(this).parent().find('input[type="checkbox"]').trigger('click');
-    });
+    // $('#table_pinjam').on('click', 'tbody td, thead th:first-child', function(e){
+    //   $(this).parent().find('input[type="checkbox"]').trigger('click');
+    // });
 
 
 	$("#simpan").on("click",function(){
